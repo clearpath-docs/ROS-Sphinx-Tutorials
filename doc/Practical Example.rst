@@ -6,9 +6,7 @@ Follow along to see how we actually ‘do’ all of these things….
 
 1. 	First, you will need to run Ubuntu, and have ROS installed on it. For your convenience, you can download our easy-to-use image here:
 
-	https://s3.amazonaws.com/CPR_PUBLIC/LEARN_ROS/Learn_ROS-disk1.vmdk
-
-	https://s3.amazonaws.com/CPR_PUBLIC/LEARN_ROS/Learn_ROS.ovf
+	https://s3.amazonaws.com/CPR_PUBLIC/LEARN_ROS/ROS_Edu.zip
 
 	**Login (username):** user
 
