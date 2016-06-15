@@ -90,7 +90,7 @@ This will create a map file in your current directory called **jackal_world**, w
 .. code-block:: bash
 
   roslaunch jackal_gazebo jackal_world.launch config:=front_laser
-  roslaunch jackal_navigation amcl_demo.launch map_file:=jackal_wolrd.yaml
+  roslaunch jackal_navigation amcl_demo.launch map_file:=jackal_world.yaml
   roslaunch jackal_viz view_robot.launch config:=localization
 
 For the purpose of this demonstration, I recommend hiding the Robot Model and Axes, and showing the Pose Array using the check boxes on the side. The red arrows around Jackal are the poses Jackal could be, based on a Monte Carlo localization estimate. This takes in scan data and transforms, and evaluates that data against the map we recorded previously to try to determine where it is within the Jackal world.
