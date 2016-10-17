@@ -33,4 +33,4 @@ ROS packages will be named ros-. For example, to install the Clearpath Robotics 
 
 A very convenient feature of Ubuntu is tab auto completion! While typing a command, press the tab key to complete the rest of the command. If there are multiple commands that could be used to finish your line, double tap the tab key to list the possible options.
 
-You should now have the tools you need to install ROS on your machine! Instructions can be found on the `ROS Wiki <http://www.wiki.ros.org>`_.
+You should now have the tools you need to install ROS on your machine! Instructions can be found on the `ROS Wiki <http://wiki.ros.org>`_.

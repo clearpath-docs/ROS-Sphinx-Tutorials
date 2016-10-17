@@ -1,0 +1,345 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Nodelet Everything &mdash; ROS Tutorials 0.5.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/clearpath.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="ROS Tutorials 0.5.1 documentation" href="index.html"/>
+        <link rel="prev" title="Converting ROS Bag to CSV" href="Converting ROS bag to CSV.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+  <!-- Start of clearpathrobotics Zendesk Widget script -->
+<script>/*<![CDATA[​*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(c){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var o=this.createElement("script");n&&(this.domain=n),o.id="js-iframe-async",o.src=e,this.t=+new Date,this.zendeskHost=t,this.zEQueue=a,this.body.appendChild(o)},o.write('<body onload="document._l();">'),o.close()}("https://assets.zendesk.com/embeddable_framework/main.js","clearpathrobotics.zendesk.com");/*​]]>*/</script>
+<!-- End of clearpathrobotics Zendesk Widget script -->
+
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+ })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ ga('create', 'UA-71565737-1', 'auto');
+ ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ROS Tutorials
+          
+          </a>
+          
+            
+            <a href="http://www.clearpathrobotics.com/">
+            <img src="_static/clearpathlogo.png" class="logo" />
+          </a>
+          
+          
+
+          
+            
+            
+              <div class="version">
+                0.5.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search..." />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="simple">
+</ul>
+<p class="caption"><span class="caption-text">Beginner</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Getting Started with Ubuntu.html">ROS 101: Getting Started with Ubuntu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro to the Robot Operating System.html">ROS 101: Intro to ROS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Practical Example.html">ROS 101: A Practical Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Drive a Husky.html">ROS 101: Drive a Husky</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Drive a Grizzly.html">ROS 101: Drive a Grizzly</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Intermediate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Creating publisher.html">Creating a Workspace and Publisher</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Creating subscriber.html">Creating a Subscriber Using Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Creating RQT Dashboard.html">Creating a RQT Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Launch Files.html">Launch Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Udev Rules.html">Udev Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Driving Husky with ROSSerial.html">Driving Husky with ROSSerial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ROS Parameter Server.html">ROS Parameter Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ROS Navigation Basics.html">ROS Navigation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Converting ROS bag to CSV.html">Converting ROS Bag to CSV</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Nodelet Everything</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#starting-out">Starting Out</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#but-why">But Why?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#caveats">Caveats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#and-now-code">And Now, Code:</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">ROS Tutorials</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+     
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="http://support.clearpathrobotics.com">Home</a> &raquo;</li>
+      
+    <li>Nodelet Everything</li>
+      <li class="wy-breadcrumbs-aside">
+        <div class="roslogo">
+      </div>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nodelet-everything">
+<h1>Nodelet Everything<a class="headerlink" href="#nodelet-everything" title="Permalink to this headline">¶</a></h1>
+<p>Nodelets are vital for squeezing more performance out of ROS, particularly for vision, control, or other high-frequency and/or bandwidth applications. Why not make everything a nodelet? In this ROS tutorial, you&#8217;ll learn how to incorporate nodelets into your code.</p>
+<div class="section" id="starting-out">
+<h2>Starting Out<a class="headerlink" href="#starting-out" title="Permalink to this headline">¶</a></h2>
+<p>It&#8217;s surprisingly easy to write Nodelet-friendly code when you do it from the start. The best thing to do right away is set up a nodelet library and a wrapping node executable that can be run standalone. You will notice that thanks to pluginlib, you don&#8217;t even need to link your node executable against your nodelet library in CMakeLists. See the reference code below, ripped mostly from <a class="reference external" href="https://github.com/clearpathrobotics/zbar_ros">https://github.com/clearpathrobotics/zbar_ros</a>. Names and such are templated with a &#64;(...) scheme.</p>
+</div>
+<div class="section" id="but-why">
+<h2>But Why?<a class="headerlink" href="#but-why" title="Permalink to this headline">¶</a></h2>
+<p>The primary advantage is the automagic zero-copy transport between nodelets (in one nodelet manager). This means that the pointcloud created by a hardware driver doesn&#8217;t need to get copied or serialized before it hits your code, assuming you inject the nodelet into the camera&#8217;s manager, saving you time and trouble.</p>
+<p>You get all the modularity of nodes, and all the efficiency of having one monolithic process. This makes nodelets more flexible than bare plugins (via pluginlib) - you can implicitly tap into any of the intra-process communication that occurs.</p>
+</div>
+<div class="section" id="caveats">
+<h2>Caveats<a class="headerlink" href="#caveats" title="Permalink to this headline">¶</a></h2>
+<p>The requirement for zero-copy transport to work is that you subscribe with a ConstPtr callback, and don&#8217;t modify the message on the publisher side after publishing, see nodelet code below.</p>
+<p>The earliest you can get a NodeHandle is inside the onInit() method. Don&#8217;t try to do anything ROS related in the constructor.
+If one nodelet goes down, the whole manager goes down. Check for exceptions.</p>
+<p>To obey the Nodelet API, you shouldn&#8217;t manually manage threads. But you were always using ros::Timer callbacks like you&#8217;re supposed to anyways, right? Callbacks on NodeHandles from the Nodelet API get managed by a shared threadpool, which is way more efficient.</p>
+<p>ROS_DEBUG and friends no longer work - use the equivalent NODELET_DEBUG. Sadly this precludes sharing code implementation with debug messages between Nodes and Nodelets, which is why we use a dynamic wrapping Node below.</p>
+<p>You don&#8217;t actually NEED the wrapping node - you can run the nodelet with <cite>nodelet standalone pkg/nodelet</cite>. However this precludes using <cite>rosrun pkg node</cite>, which is very user-friendly.</p>
+<p>Now that I&#8217;ve convinced you, please read the rest of the nodelet docs:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://wiki.ros.org/nodelet">http://wiki.ros.org/nodelet</a></li>
+<li><a class="reference external" href="http://wiki.ros.org/roscpp/Overview/Publishers%20and%20Subscribers#Intraprocess_Publishing">http://wiki.ros.org/roscpp/Overview/Publishers%20and%20Subscribers#Intraprocess_Publishing</a></li>
+</ul>
+</div>
+<div class="section" id="and-now-code">
+<h2>And Now, Code:<a class="headerlink" href="#and-now-code" title="Permalink to this headline">¶</a></h2>
+<p>The &#64;(...) format below may be familiar to anyone who&#8217;s used empy.  Just replace each tag with your string of choice!</p>
+<p><strong>Node Code:</strong></p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="cp">#include &quot;ros/ros.h&quot;</span>
+<span class="cp">#include &quot;nodelet/loader.h&quot;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">){</span>
+  <span class="n">ros</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="s">&quot;@(node)&quot;</span><span class="p">);</span>
+  <span class="n">nodelet</span><span class="o">::</span><span class="n">Loader</span> <span class="n">nodelet</span><span class="p">;</span>
+  <span class="n">nodelet</span><span class="o">::</span><span class="n">M_string</span> <span class="n">remap</span><span class="p">(</span><span class="n">ros</span><span class="o">::</span><span class="n">names</span><span class="o">::</span><span class="n">getRemappings</span><span class="p">());</span>
+  <span class="n">nodelet</span><span class="o">::</span><span class="n">V_string</span> <span class="n">nargv</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">nodelet_name</span> <span class="o">=</span> <span class="n">ros</span><span class="o">::</span><span class="n">this_node</span><span class="o">::</span><span class="n">getName</span><span class="p">();</span>
+  <span class="n">nodelet</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">nodelet_name</span><span class="p">,</span> <span class="s">&quot;@(package)/@(nodelet)&quot;</span><span class="p">,</span> <span class="n">remap</span><span class="p">,</span> <span class="n">nargv</span><span class="p">);</span>
+  <span class="n">ros</span><span class="o">::</span><span class="n">spin</span><span class="p">();</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Nodelet Code:</strong></p>
+<div class="highlight-c++"><div class="highlight"><pre>#include &quot;ros/ros.h&quot;
+#include &quot;nodelet/nodelet.h&quot;
+
+namespace @(namespace)
+{
+
+  class @(NodeletClass) : public nodelet::Nodelet
+  {
+  public:
+  @(NodeletClass)();
+
+  private:
+  virtual void onInit(){
+  nh = getNodeHandle();
+  private_nh = getPrivateNodeHandle();
+  timer_ = nh.createTimer(ros::Duration(1.0), boost::bind(&amp; @(NodeletClass)::timerCb, this, _1));
+  sub_ = nh.subscribe(&quot;incoming_chatter&quot;, 10, boost::bind(&amp; @(NodeletClass)::messageCb, this, _1));
+  pub_ = private_nh.advertise&lt;std_msgs::String&gt;(&quot;outgoing_chatter&quot;, 10);
+  };
+
+  void timerCb(const ros::TimerEvent&amp; event){
+  // Using timers is the preferred &#39;ROS way&#39; to manual threading
+  NODELET_INFO_STREAM(&quot;The time is now &quot; &lt;&lt; event.current_real);
+  }
+
+  // must use a ConstPtr callback to use zero-copy transport
+  void messageCb(const std_msgs::StringConstPtr message){
+
+  // can republish the old message no problem, since we&#39;re not modifying it
+  pub_.publish(message);
+
+  std_msgs::String new_message;
+  new_message.data = message.data + &quot; fizz buzz&quot;;
+  pub_.publish(new_message);
+
+  // we can&#39;t modify any messages after they&#39;ve been published, unless we want our subscribers to get VERY confused
+  // new_message.data = &quot;can&#39;t do this!&quot;;
+   }
+
+  ros::Subscriber sub_;
+  ros::Publisher pub_;
+  ros::Timer timer_;
+  };
+
+} // namespace @(namespace)
+
+PLUGINLIB_DECLARE_CLASS(@(package), @(NodeletClass), @(namespace)::@(NamespaceClass), nodelet::Nodelet);
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="Converting ROS bag to CSV.html" class="btn btn-neutral" title="Converting ROS Bag to CSV" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Clearpath Robotics.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.5.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

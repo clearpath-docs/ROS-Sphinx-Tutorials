@@ -1,0 +1,416 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Creating a Workspace and Publisher &mdash; ROS Tutorials 0.5.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/clearpath.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="ROS Tutorials 0.5.1 documentation" href="index.html"/>
+        <link rel="next" title="Creating a Subscriber Using Github" href="Creating subscriber.html"/>
+        <link rel="prev" title="Drive a Grizzly" href="Drive a Grizzly.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+  <!-- Start of clearpathrobotics Zendesk Widget script -->
+<script>/*<![CDATA[​*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(c){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var o=this.createElement("script");n&&(this.domain=n),o.id="js-iframe-async",o.src=e,this.t=+new Date,this.zendeskHost=t,this.zEQueue=a,this.body.appendChild(o)},o.write('<body onload="document._l();">'),o.close()}("https://assets.zendesk.com/embeddable_framework/main.js","clearpathrobotics.zendesk.com");/*​]]>*/</script>
+<!-- End of clearpathrobotics Zendesk Widget script -->
+
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+ })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ ga('create', 'UA-71565737-1', 'auto');
+ ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ROS Tutorials
+          
+          </a>
+          
+            
+            <a href="http://www.clearpathrobotics.com/">
+            <img src="_static/clearpathlogo.png" class="logo" />
+          </a>
+          
+          
+
+          
+            
+            
+              <div class="version">
+                0.5.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search..." />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="simple">
+</ul>
+<p class="caption"><span class="caption-text">Beginner</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Getting Started with Ubuntu.html">ROS 101: Getting Started with Ubuntu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Intro to the Robot Operating System.html">ROS 101: Intro to ROS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Practical Example.html">ROS 101: A Practical Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Drive a Husky.html">ROS 101: Drive a Husky</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Drive a Grizzly.html">ROS 101: Drive a Grizzly</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Intermediate</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Creating a Workspace and Publisher</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-workspace-package">Creating a Workspace &amp; Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#writing-the-publisher">Writing the Publisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compiling-the-random-husky-driver">Compiling the Random Husky Driver</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Creating subscriber.html">Creating a Subscriber Using Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Creating RQT Dashboard.html">Creating a RQT Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Launch Files.html">Launch Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Udev Rules.html">Udev Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Driving Husky with ROSSerial.html">Driving Husky with ROSSerial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ROS Parameter Server.html">ROS Parameter Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ROS Navigation Basics.html">ROS Navigation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Converting ROS bag to CSV.html">Converting ROS Bag to CSV</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Nodelet Everything.html">Nodelet Everything</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">ROS Tutorials</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+     
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="http://support.clearpathrobotics.com">Home</a> &raquo;</li>
+      
+    <li>Creating a Workspace and Publisher</li>
+      <li class="wy-breadcrumbs-aside">
+        <div class="roslogo">
+      </div>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="creating-a-workspace-and-publisher">
+<h1>Creating a Workspace and Publisher<a class="headerlink" href="#creating-a-workspace-and-publisher" title="Permalink to this headline">¶</a></h1>
+<p>We will first be creating a workspace to work from, then we will write a simple publisher that will make our virtual Husky drive around randomly. This tutorial is intended for Ubuntu 14.04 and <a class="reference external" href="http://wiki.ros.org/indigo">ROS Indigo</a>.</p>
+<div class="section" id="creating-a-workspace-package">
+<h2>Creating a Workspace &amp; Package<a class="headerlink" href="#creating-a-workspace-package" title="Permalink to this headline">¶</a></h2>
+<p>Before we begin writing a node, we need to create a workspace and a package.
+Workspaces are simply directories to store all of your packages.
+First we will need to create a new directory.</p>
+<div class="highlight-bash"><div class="highlight"><pre>mkdir ~/ros101
+</pre></div>
+</div>
+<p>This created a directory in your home folder which we will use as a workspace directory.
+We now need to create a subdirectory in your workspace directory to store all your source code for your packages</p>
+<div class="highlight-bash"><div class="highlight"><pre>mkdir ~/ros101/src
+</pre></div>
+</div>
+<p>The last step to creating the workspace will be to initialize the workspace with <strong>catkin_init_workspace</strong>.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nb">cd</span> ~/ros101/src
+catkin_init_workspace
+</pre></div>
+</div>
+<p>Now that our workspace has been created, we will create a package in the src directory we just created.
+This can be done by navigating to the <strong>~/ros101/src directory</strong>, which you should have already done in the last step.
+We can create the package using the <strong>catkin_create_pkg</strong> command  followed by what we want the package to be named, and then followed by what other packages
+our package will be dependent on. All this command really does is creates another directory for your new package, and two new configuration
+files inside that directory with some default settings.</p>
+<div class="highlight-bash"><div class="highlight"><pre>catkin_create_pkg random_husky_driver roscpp std_msgs
+</pre></div>
+</div>
+<p>You can see that this created <strong>CMakeLists.txt</strong> and <strong>package.xml</strong> inside the random_husky_driver directory,
+this is also where you will store all your source code for your packages.
+The <strong>roscpp</strong> and <strong>std_msgs</strong> dependencies were added into the <strong>MakeLIst.txt</strong> and <strong>package.xml</strong>.</p>
+</div>
+<div class="section" id="writing-the-publisher">
+<h2>Writing the Publisher<a class="headerlink" href="#writing-the-publisher" title="Permalink to this headline">¶</a></h2>
+<p>As mentioned in our previous post, a publisher publishes messages to a particular topic.
+For this tutorial, we will be publishing random commands to the <strong>/husky_velocity_controller/cmd_vel</strong> topic to make your Husky visualization drive itself.
+Start by creating a file in your <strong>~/ros101/src/random_husky_driver</strong> directory called <strong>random_driver.cpp</strong>. First make sure you&#8217;re in the random_husky_driver directory and type the following.</p>
+<div class="highlight-bash"><div class="highlight"><pre>gedit random_driver.cpp
+</pre></div>
+</div>
+<p>This will create and open the new driver file. Within the new driver file, copy the following code.</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="cp">#include &lt;ros/ros.h&gt;</span>
+<span class="cp">#include &lt;geometry_msgs/Twist.h&gt;</span>
+<span class="cp">#include &lt;stdlib.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">//Initializes ROS, and sets up a node</span>
+<span class="n">ros</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="s">&quot;random_husky_commands&quot;</span><span class="p">);</span>
+<span class="n">ros</span><span class="o">::</span><span class="n">NodeHandle</span> <span class="n">nh</span><span class="p">;</span>
+
+<span class="c1">//Ceates the publisher, and tells it to publish</span>
+<span class="c1">//to the husky_velocity_controller/cmd_vel topic, with a queue size of 100</span>
+<span class="n">ros</span><span class="o">::</span><span class="n">Publisher</span> <span class="n">pub</span><span class="o">=</span><span class="n">nh</span><span class="p">.</span><span class="n">advertise</span><span class="o">&lt;</span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">Twist</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;husky_velocity_controller/cmd_vel&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+
+<span class="c1">//Sets up the random number generator</span>
+<span class="n">srand</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+
+<span class="c1">//Sets the loop to publish at a rate of 10Hz</span>
+<span class="n">ros</span><span class="o">::</span><span class="n">Rate</span> <span class="n">rate</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+
+  <span class="k">while</span><span class="p">(</span><span class="n">ros</span><span class="o">::</span><span class="n">ok</span><span class="p">())</span> <span class="p">{</span>
+    <span class="c1">//Declares the message to be sent</span>
+    <span class="n">geometry_msgs</span><span class="o">::</span><span class="n">Twist</span> <span class="n">msg</span><span class="p">;</span>
+    <span class="c1">//Random x value between -2 and 2</span>
+    <span class="n">msg</span><span class="p">.</span><span class="n">linear</span><span class="p">.</span><span class="n">x</span><span class="o">=</span><span class="mi">4</span><span class="o">*</span><span class="kt">double</span><span class="p">(</span><span class="n">rand</span><span class="p">())</span><span class="o">/</span><span class="kt">double</span><span class="p">(</span><span class="n">RAND_MAX</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">;</span>
+    <span class="c1">//Random y value between -3 and 3</span>
+    <span class="n">msg</span><span class="p">.</span><span class="n">angular</span><span class="p">.</span><span class="n">z</span><span class="o">=</span><span class="mi">6</span><span class="o">*</span><span class="kt">double</span><span class="p">(</span><span class="n">rand</span><span class="p">())</span><span class="o">/</span><span class="kt">double</span><span class="p">(</span><span class="n">RAND_MAX</span><span class="p">)</span><span class="o">-</span><span class="mi">3</span><span class="p">;</span>
+    <span class="c1">//Publish the message</span>
+    <span class="n">pub</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
+
+    <span class="c1">//Delays until it is time to send another message</span>
+    <span class="n">rate</span><span class="p">.</span><span class="n">sleep</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Lets break down this code line by line,</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="cp">#include &lt;ros/ros.h&gt;</span>
+<span class="cp">#include &lt;geometry_msgs/Twist.h&gt;</span>
+</pre></div>
+</div>
+<p>These lines includes the headers that we are going to need. The <strong>&lt;ros/ros.h&gt;</strong> header is required for ROS functionality and
+the <strong>&lt;geometry_msgs/Twist.h&gt;</strong> is added so that we can create a message of that type.</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">ros</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="s">&quot;random_husky_commands&quot;</span><span class="p">);</span>
+<span class="n">ros</span><span class="o">::</span><span class="n">NodeHandle</span> <span class="n">nh</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The first line, ros:/:init,  is used to initialize the ROS node, and name it &#8220;random_husky_commands&#8221;, while ros:NodeHandle starts the node.</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">ros</span><span class="o">::</span><span class="n">Publisher</span> <span class="n">pub</span><span class="o">=</span><span class="n">nh</span><span class="p">.</span><span class="n">advertise</span><span class="o">&lt;</span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">Twist</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;husky_velocity_controller/cmd_vel&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Publishing a message is done using <strong>ros:Publisher pub=nh.advertise</strong>, followed by the message type that we are going to be sending,
+in this case it is a <strong>geometry_msga::Twist</strong>, and the topic that we are going to be sending it too, which for us is <strong>husky_velocity_controller/cmd_vel</strong>.
+The 100 is the message queue size, that is, if you are publishing message faster then what roscpp can send,
+100 messages will be saved in the queue to be sent. The larger the queue, the more delay in robot movement in case of buffering.
+Therefore in a real life example, you will want to have a smaller queue in the case of robot movement, where delay in movement
+commands are undesirable and even dangerous, but dropped messages are acceptable. In the case of sensors, it is recommended to use a
+larger queue, since delay is acceptable to ensure no data is lost.</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">ros</span><span class="o">::</span><span class="n">Rate</span> <span class="n">rate</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="p">...</span>
+<span class="n">rate</span><span class="p">.</span><span class="n">sleep</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>ROS is able to control the loop frequency  using <strong>ros:Rate</strong> to dictate how rapidly the loop will run in Hz.
+rate.sleep will delay a variable amount of time such that your loop cycles at the desired frequency.
+This accounts for time consumed by other parts of the loop. All Clearpath robots require a minimum loop rate of 10Hz.</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="k">while</span><span class="p">(</span><span class="n">ros</span><span class="o">::</span><span class="n">ok</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>The ros::ok function will return true unless it receives a command to shut down, either by using the rosnode kill command, or by the user pushing Ctrl-C in a terminal.</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">Twist</span> <span class="n">msg</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This creates the message we are going to send, msg, of the type <strong>geometry_msgs:Twist</strong></p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">msg</span><span class="p">.</span><span class="n">linear</span><span class="p">.</span><span class="n">x</span><span class="o">=</span><span class="mi">4</span><span class="o">*</span><span class="kt">double</span><span class="p">(</span><span class="n">rand</span><span class="p">())</span><span class="o">/</span><span class="kt">double</span><span class="p">(</span><span class="n">RAND_MAX</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">msg</span><span class="p">.</span><span class="n">angular</span><span class="p">.</span><span class="n">z</span><span class="o">=</span><span class="mi">6</span><span class="o">*</span><span class="kt">double</span><span class="p">(</span><span class="n">rand</span><span class="p">())</span><span class="o">/</span><span class="kt">double</span><span class="p">(</span><span class="n">RAND_MAX</span><span class="p">)</span><span class="o">-</span><span class="mi">3</span><span class="p">;</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/huskycords.png"><img alt="_images/huskycords.png" src="_images/huskycords.png" style="width: 898.5px; height: 454.5px;" /></a>
+<p>These lines calculate the random linear x and angular z values that will be sent to Husky.</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">pub</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We are finally ready to publish the message! The <strong>pub.publish</strong> adds msg to the publisher queue to be sent.</p>
+</div>
+<div class="section" id="compiling-the-random-husky-driver">
+<h2>Compiling the Random Husky Driver<a class="headerlink" href="#compiling-the-random-husky-driver" title="Permalink to this headline">¶</a></h2>
+<p>Compilation in ROS in handled by the catkin build system. The first step would usually be to set up our package dependencies in
+the <strong>CMakeLists.txt</strong> and <strong>package.xml</strong>. However this has already been done for us when we created the package and specified our
+dependencies. The next step is then to declare our new node as a executable, this is done by adding the following two
+lines to the <strong>CMakeLists.txt</strong> files in <strong>~/ros101/src/random_husky_driver</strong>. You can add them as the last two lines in the file.</p>
+<div class="highlight-bash"><div class="highlight"><pre>add_executable<span class="o">(</span>random_driver random_driver.cpp<span class="o">)</span>
+target_link_libraries<span class="o">(</span>random_driver <span class="si">${</span><span class="nv">catkin_LIBRARIES</span><span class="si">}</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>The first line creates the executable called random_driver, and directs ROS to it&#8217;s source files.
+The second lines specifies what libraries will be used.
+Now we need to build our workspace using the catkin_make command in the workspace directory</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nb">cd</span> ~/ros101
+catkin_make
+</pre></div>
+</div>
+<p>Let&#8217;s bring up the husky visualization as we did in a previous blog post.</p>
+<div class="highlight-bash"><div class="highlight"><pre>roslaunch husky_gazebo husky_empty_world.launch
+</pre></div>
+</div>
+<p>The final step is to source your setup.bash file in the workspace you have created.
+This allows ROS to find the packages that are contained in your workspace.
+Dont forget this process will have to be done on every new terminal instance!</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nb">source</span> ~/ros101/devel/setup.bash
+</pre></div>
+</div>
+<p>It&#8217;s now time to test it out! With gazebo still running, lets start the node.</p>
+<div class="highlight-bash"><div class="highlight"><pre>rosrun random_husky_driver random_driver
+</pre></div>
+</div>
+<p>You should now see Husky drive around! In a new terminal window,
+we can make sure that our node is publishing to the <strong>/husky_velocity_controller/cmd_vel</strong> topic by echoing all messages on this topic</p>
+<div class="highlight-bash"><div class="highlight"><pre>rostopic <span class="nb">echo</span> /husky_velocity_controller/cmd_vel
+</pre></div>
+</div>
+<img alt="_images/randomecho.png" src="_images/randomecho.png" />
+<p>You should now see a stream of random linear x and angular z values.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Creating subscriber.html" class="btn btn-neutral float-right" title="Creating a Subscriber Using Github" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Drive a Grizzly.html" class="btn btn-neutral" title="Drive a Grizzly" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Clearpath Robotics.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.5.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

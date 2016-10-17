@@ -51,7 +51,7 @@ We can now command the robot to go forwards. Open a terminal window, and copy th
 	angular:
 		x: 0.0
 		y: 0.0
-		z: 0.0"
+		z: 0.0" -r 10
 
 In the above command, we publish to the **/husky_velocity_controller/cmd_vel topic**, of topic type **geometry_msgs/Twist**.
 The data we publish tells the simulated Husky to go forwards at 0.5m/s, without any rotation. You should see your Husky move forwards.
