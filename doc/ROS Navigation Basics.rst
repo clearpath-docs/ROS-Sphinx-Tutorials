@@ -85,12 +85,14 @@ Once you're happy with the map you've made, go ahead and save it using
 
   rosrun map_server map_saver -f jackal_world
 
-This will create a map file in your current directory called **jackal_world**, which we will use in our `AMCL <http://wiki.ros.org/amcl>`_ demo. Go ahead and terminate all of the ROS terminals using CTRL-C. Then launch the simulator once again, the AMCL demo with the map we just created, and Rviz with our localization config, **all in separate terminals**. If you closed the windows, you'll need to source your terminals again.
+This will create a map file in your current directory called **jackal_world**, which we will use in our `AMCL <http://wiki.ros.org/amcl>`_ demo. Go ahead and terminate all of the ROS terminals using CTRL-C. Then launch the simulator once again, the AMCL demo with the map we just created, and Rviz with our localization config, **all in separate terminals**. If you closed the windows, you'll need to source your terminals again.  
 
-.. code-block:: bash
+When launching the AMCL demo below (second line of code), be sure to include the absolute path to jackal_world.yaml.  
+
+.. code-block:: bash>/
 
   roslaunch jackal_gazebo jackal_world.launch config:=front_laser
-  roslaunch jackal_navigation amcl_demo.launch map_file:=jackal_world.yaml
+  roslaunch jackal_navigation amcl_demo.launch map_file:=<ABSOLUTE_PATH>/jackal_world.yaml
   roslaunch jackal_viz view_robot.launch config:=localization
 
 For the purpose of this demonstration, I recommend hiding the Robot Model and Axes, and showing the Pose Array using the check boxes on the side. The red arrows around Jackal are the poses Jackal could be, based on a Monte Carlo localization estimate. This takes in scan data and transforms, and evaluates that data against the map we recorded previously to try to determine where it is within the Jackal world.
