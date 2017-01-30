@@ -41,7 +41,7 @@ We can add objects to this simulation, such as the cube above, or even entire ma
 
 The right window is RViz. This tool allows us to see sensor data from a robot, and give it commands (in a future post).
 
-We can now command the robot to go forwards. Open a terminal window, and copy the following:
+We can now command the robot to go forwards. Open a terminal window, and use the command below, copy pasting this one won't work! You can tab complete this command by hitting the tab key after geometry_msgs/Twist:
 
 .. parsed-literal::
 	rostopic pub /husky_velocity_controller/cmd_vel geometry_msgs/Twist "linear:
