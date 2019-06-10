@@ -1,4 +1,4 @@
-Driving Husky with ROSserial and an Ardunio
+Driving Husky with ROSserial and an Arduino
 =============================================
 
 The Arduino family of micro controllers has quickly become a go to board for hobbyist due to its simplicity and ease of use, however often times roboticists must create communication protocols to allow their embedded hardware to communicate with a computer. That's where rosserial comes in! Rosserial is a general protocol for sending ROS messages over a serial interface, such as the UART on Arduino. This allows you to easily interface any sensors attached to Arduino into your ROS environment!
