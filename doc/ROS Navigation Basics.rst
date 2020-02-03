@@ -89,7 +89,7 @@ This will create a map file in your current directory called **jackal_world**, w
 
 When launching the AMCL demo below (second line of code), be sure to include the absolute path to jackal_world.yaml.
 
-.. code-block:: bash>/
+.. code-block:: bash
 
   roslaunch jackal_gazebo jackal_world.launch config:=front_laser
   roslaunch jackal_navigation amcl_demo.launch map_file:=<ABSOLUTE_PATH>/jackal_world.yaml
