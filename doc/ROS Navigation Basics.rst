@@ -3,7 +3,7 @@ ROS Navigation Basics
 
 If you've worked with ROS and robotics, you've probably heard of gmaping, localization, SLAM, costmaps and paths, but what does all this mean? They are more than just robot buzz words; these allow a robot to get from one point to another without bumping into obstacles, and in this tutorial, we'll be covering some of the key concepts in what makes up an autonomous robot.
 
-For this tutorial, we'll be using Clearpath's Jackal simulation in ROS Indigo. If you've never used ROS before, or don't have ROS Indigo installed on your machine, check out the `ROS wiki <http://wiki.ros.org/i  ndigo>`_ to get started.
+For this tutorial, we'll be using Clearpath's Jackal simulation in ROS Kinetic. If you've never used ROS before, or don't have ROS Kinetic installed on your machine, check out the `ROS wiki <http://wiki.ros.org/i  ndigo>`_ to get started.
 
 Getting Started
 ----------------
@@ -12,7 +12,7 @@ We'll begin by installing Clearpath's Jackal simulation, desktop, and navigation
 
 .. code-block:: bash
 
-  sudo apt-get install ros-indigo-jackal-simulator ros-indigo-jackal-desktop
+  sudo apt-get install ros-kinetic-jackal-simulator ros-kinetic-jackal-desktop
 
 In addition, we'll need the Jackal navigation package, but instead of installing the debians packages with apt-get, we'll create a sourced workspace so we can make changes to some of these files and see how it effects our simulation. For a full explanation on creating and compiling a sourced workspace, check out our `Creating a Workspace & Package <http://www.clearpathrobotics.com/guides/ros/Creating%20publisher.html>`_ tutorial, but for the purpose of this tutorial, here is a series of commands that'll clone the jackal_navigation package (and a few others) into a sourced workspace.
 
@@ -54,7 +54,7 @@ We'll begin our navigation tutorial by first building a map of our Gazebo world 
   source ~/jackal_navigation/devel/setup.bash
   roslaunch jackal_navigation gmapping.launch
 
-If you're familiar with ROS launch files, I'd encourage you to take a look `here <https://github.com/jackal/jackal/blob/indigo-devel/jackal_navigation/launch/include/gmapping.launch>`_, otherwise, you can check out our tutorial on launch files `here <http://www.clearpathrobotics.com/guides/ros/Launch%20Files.html>`_. This launch file is simply starting the `gmaping package <http://wiki.ros.org/gmapping>`_ and setting several of the gmapping parameters which are described on the `gmapping ROS wiki <http://wiki.ros.org/gmapping>`_ page. **In a new terminal**, open up Rviz using the Jackal's gmaping configuration.
+If you're familiar with ROS launch files, I'd encourage you to take a look `here <https://github.com/jackal/jackal/blob/kinetic-devel/jackal_navigation/launch/include/gmapping.launch>`_, otherwise, you can check out our tutorial on launch files `here <http://www.clearpathrobotics.com/guides/ros/Launch%20Files.html>`_. This launch file is simply starting the `gmaping package <http://wiki.ros.org/gmapping>`_ and setting several of the gmapping parameters which are described on the `gmapping ROS wiki <http://wiki.ros.org/gmapping>`_ page. **In a new terminal**, open up Rviz using the Jackal's gmaping configuration.
 
 .. code-block:: bash
 
@@ -85,11 +85,11 @@ Once you're happy with the map you've made, go ahead and save it using
 
   rosrun map_server map_saver -f jackal_world
 
-This will create a map file in your current directory called **jackal_world**, which we will use in our `AMCL <http://wiki.ros.org/amcl>`_ demo. Go ahead and terminate all of the ROS terminals using CTRL-C. Then launch the simulator once again, the AMCL demo with the map we just created, and Rviz with our localization config, **all in separate terminals**. If you closed the windows, you'll need to source your terminals again.  
+This will create a map file in your current directory called **jackal_world**, which we will use in our `AMCL <http://wiki.ros.org/amcl>`_ demo. Go ahead and terminate all of the ROS terminals using CTRL-C. Then launch the simulator once again, the AMCL demo with the map we just created, and Rviz with our localization config, **all in separate terminals**. If you closed the windows, you'll need to source your terminals again.
 
-When launching the AMCL demo below (second line of code), be sure to include the absolute path to jackal_world.yaml.  
+When launching the AMCL demo below (second line of code), be sure to include the absolute path to jackal_world.yaml.
 
-.. code-block:: bash>/
+.. code-block:: bash
 
   roslaunch jackal_gazebo jackal_world.launch config:=front_laser
   roslaunch jackal_navigation amcl_demo.launch map_file:=<ABSOLUTE_PATH>/jackal_world.yaml
