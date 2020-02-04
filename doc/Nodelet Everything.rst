@@ -1,6 +1,6 @@
 Nodelet Everything
-=================== 
- 
+===================
+
 Nodelets are vital for squeezing more performance out of ROS, particularly for vision, control, or other high-frequency and/or bandwidth applications. Why not make everything a nodelet? In this ROS tutorial, you'll learn how to incorporate nodelets into your code.
 
 Starting Out
@@ -15,7 +15,7 @@ The primary advantage is the automagic zero-copy transport between nodelets (in 
 
 You get all the modularity of nodes, and all the efficiency of having one monolithic process. This makes nodelets more flexible than bare plugins (via pluginlib) - you can implicitly tap into any of the intra-process communication that occurs.
 
-Caveats 
+Caveats
 -----------
 
 The requirement for zero-copy transport to work is that you subscribe with a ConstPtr callback, and don't modify the message on the publisher side after publishing, see nodelet code below.
@@ -45,7 +45,7 @@ The @(...) format below may be familiar to anyone who's used empy.  Just replace
 
   #include "ros/ros.h"
   #include "nodelet/loader.h"
- 
+
   int main(int argc, char **argv){
     ros::init(argc, argv, "@(node)");
     nodelet::Loader nodelet;
@@ -63,15 +63,15 @@ The @(...) format below may be familiar to anyone who's used empy.  Just replace
 
   #include "ros/ros.h"
   #include "nodelet/nodelet.h"
- 
+
   namespace @(namespace)
   {
- 
+
     class @(NodeletClass) : public nodelet::Nodelet
     {
     public:
     @(NodeletClass)();
- 
+
     private:
     virtual void onInit(){
     nh = getNodeHandle();
@@ -80,32 +80,31 @@ The @(...) format below may be familiar to anyone who's used empy.  Just replace
     sub_ = nh.subscribe("incoming_chatter", 10, boost::bind(& @(NodeletClass)::messageCb, this, _1));
     pub_ = private_nh.advertise<std_msgs::String>("outgoing_chatter", 10);
     };
- 
+
     void timerCb(const ros::TimerEvent& event){
     // Using timers is the preferred 'ROS way' to manual threading
     NODELET_INFO_STREAM("The time is now " << event.current_real);
     }
- 
+
     // must use a ConstPtr callback to use zero-copy transport
     void messageCb(const std_msgs::StringConstPtr message){
- 
+
     // can republish the old message no problem, since we're not modifying it
     pub_.publish(message);
- 
+
     std_msgs::String new_message;
     new_message.data = message.data + " fizz buzz";
     pub_.publish(new_message);
- 
+
     // we can't modify any messages after they've been published, unless we want our subscribers to get VERY confused
     // new_message.data = "can't do this!";
      }
- 
+
     ros::Subscriber sub_;
     ros::Publisher pub_;
     ros::Timer timer_;
     };
- 
-  } // namespace @(namespace)
- 
-  PLUGINLIB_DECLARE_CLASS(@(package), @(NodeletClass), @(namespace)::@(NamespaceClass), nodelet::Nodelet);
 
+  } // namespace @(namespace)
+
+  PLUGINLIB_DECLARE_CLASS(@(package), @(NodeletClass), @(namespace)::@(NamespaceClass), nodelet::Nodelet);

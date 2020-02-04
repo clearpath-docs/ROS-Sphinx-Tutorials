@@ -1,5 +1,5 @@
 Udev Rules
-=============   
+=============
 
 Udev is a device manager for Linux that dynamically creates and removes nodes for hardware devices. In short, it helps your computer find your robot easily. By default, hardware devices attached to your Linux (Ubuntu) PC will belong to the root user. This means that any programs (e.g. ROS nodes) running as an unpriveleged (i.e. not root) user will not be able to access them. On top of that, devices will receive names such as ttyACMx and ttyUSBx arbitrarily based on the order in which they were plugged in. Luckily, you can solve this, and more, with **udev rules**.
 
@@ -7,7 +7,7 @@ You probably already have at least one udev rule on your system that solves the 
 
 Some driver/software packages will already provide udev rules you can use. Check the **/etc/udev/rules.d/** folder to see if there’s anything installed already. If the package is lazy and gives you a udev rule to install yourself, you can do this using:
 
-.. code-block:: bash 
+.. code-block:: bash
 
   sudo cp <rule file> /etc/udev/rules.d/>
 
@@ -29,11 +29,11 @@ The matching part lets the udev device manager match the rule to the device you 
 
 Run the following cammand, inserting a **<devpath>** such as **/dev/ttyACM0**:
 
-.. code-block:: bash 
+.. code-block:: bash
 
   udevadm info -a -p $(udevadm info -q path -n <devpath>)
 
-You will get a list of all device attributes visible to udev. looking at device ‘…/ttyACM0′:
+You will get a list of all device attributes visible to udev. looking at device `/dev/ttyACM0`
 
 .. code-block:: bash
 
@@ -76,7 +76,7 @@ Tag                             Usage
 =============================   ===================================================================
 MODE="0666"                     Set permissions to allow any user read/write access to the device.
 SYMLINK+=”hokuyo”               Create a symlink in /dev/ for this device.
-RUN+=”/bin/echo 'hello world'   Execute an arbitrary command.  `For advanced usage <http://www.reactivated.net/writing_udev_rules.html#external-run>`_ 
+RUN+=”/bin/echo 'hello world'   Execute an arbitrary command.  `For advanced usage <http://www.reactivated.net/writing_udev_rules.html#external-run>`_
 =============================   ===================================================================
 
 It is good practice to make sure symlinks are unique for each device, so the above is actually poor practice! If you have multiple devices of the same type (e.g. 2 Hokuyos), or if you have multiple devices using a generic USB-to-Serial converter (e.g. FTDI), a basic idVendor and idProduct rule will not properly discriminate between these devices, since udev will map all matching devices to the same symlink. There are several approaches:
@@ -99,7 +99,7 @@ And a rule for the child device that uses the variable in the symlink:
 
 .. code-block:: bash
 
-  ..., <match child device>..., SYMLINK+="device_$env{SERIAL_NUMBER}" 
+  ..., <match child device>..., SYMLINK+="device_$env{SERIAL_NUMBER}"
 
 **2. Through an external program:**
 
@@ -121,7 +121,7 @@ Substitution argument %k refers to the device path relative to /dev/, and %crefe
 
 Once you have copied (sudo cp) your rule into the /etc/udev/rules.d/ folder, you can test it with your device. To get udev to recognize your rule, run the following command:
 
-.. code-block:: bash 
+.. code-block:: bash
 
   sudo udevadm control --reload-rules && sudo service udev restart && sudo udevadm trigger
 
@@ -140,21 +140,3 @@ Things to keep in mind
 * Check that all tags (matching and configuration) are comma separated.
 * Check that your rule file has a trailing newline.
 * Check that your rule is owned by the root user – ll /etc/udev/rules.d/should say ‘root root‘ for the rule file.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

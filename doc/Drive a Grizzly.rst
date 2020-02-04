@@ -7,9 +7,9 @@ Open a terminal window (Ctrl + Alt + T), and enter the following:
 
 .. parsed-literal::
 	sudo apt-get update
-	sudo apt-get install ros-indigo-grizzly-simulator
-	sudo apt-get install ros-indigo-grizzly-desktop
-	sudo apt-get install ros-indigo-grizzly-navigation
+	sudo apt-get install ros-kinetic-grizzly-simulator
+	sudo apt-get install ros-kinetic-grizzly-desktop
+	sudo apt-get install ros-kinetic-grizzly-navigation
 
 
 Running a Virtual Grizzly
