@@ -10,8 +10,8 @@ ROSLAUNCH
 
 .. code-block:: bash
 
-	roslaunch package_name launch_file
-	roslaunch ~/.../.../.../launch_file
+  roslaunch package_name launch_file
+  roslaunch ~/.../.../.../launch_file
 
 Note: roslaunch will also start roscore if no master has been set. Pushing Ctrl-C in a terminal with a launch file running will close all nodes that were started with that launch files.
 
@@ -20,13 +20,17 @@ Writing a .launch File
 
 Launch files are of the format .launch and use a specific XML format. They can be placed anywhere within a package directory, but it is common to make a directory named "Launch" inside the workspace directory to organize all your launch files. The contents of a launch file must be contained between a pair of launch tags
 
-	<launch>
-	...
-	</launch>
+.. code-block:: xml
+
+  <launch>
+  ...
+  </launch>
 
 To actually start a node, the <node> tags are used, the pkg, type and name argument are required.
 
-	<node pkg="..." type="..." name="..." respawn=true ns="..."/>
+.. code-block:: xml
+
+  <node pkg="..." type="..." name="..." respawn=true ns="..."/>
 
 **pkg/type/name:** The argument pkg points to the package associated with the node that is to be launched, while "type" refers to the name of the node executable file. It is also possible to overwrite the name of the node with the name argument, this will take priority over the name that is given to the node in the code.
 
@@ -36,45 +40,47 @@ To actually start a node, the <node> tags are used, the pkg, type and name argum
 
 **arg:** Sometimes it is necessary to use a local variable in launch files. This can be done using
 
-	<arg name="..." value="...">
+.. code-block:: xml
+
+  <arg name="..." value="...">
 
 Now let's take a look at the launch file we use on our Husky's on-board PC on startup to get things going.
 
-.. code-block:: bash
+.. code-block:: xml
 
-	<launch>
-		<arg name="port" default="$(optenv HUSKY_PORT /dev/prolific)" />
+  <launch>
+    <arg name="port" default="$(optenv HUSKY_PORT /dev/prolific)" />
 
-		<node pkg="clearpath_base" type="kinematic_node" name="husky_kinematic" ns="husky">
-			<param name="port" value="$(arg port)" />
-	  		<rosparam>
-	   			cmd_fill: True
-			    	data:
-     		 			system_status: 10
-     					safety_status: 10
-     		 			encoders: 10
-    		  		differential_speed: 10
-    		  		differential_output: 10
-   		   			power_status: 1
- 					</rosparam>
-				</node>
+    <node pkg="clearpath_base" type="kinematic_node" name="husky_kinematic" ns="husky">
+      <param name="port" value="$(arg port)" />
+        <rosparam>
+           cmd_fill: True
+            data:
+                system_status: 10
+               safety_status: 10
+                encoders: 10
+              differential_speed: 10
+              differential_output: 10
+                power_status: 1
+           </rosparam>
+        </node>
 
-		<!-- Publish diagnostics information from low-level MCU outputs -->
-		<node pkg="husky_base" name="husky_base_diagnostics" type="diagnostics_publisher" />
+    <!-- Publish diagnostics information from low-level MCU outputs -->
+    <node pkg="husky_base" name="husky_base_diagnostics" type="diagnostics_publisher" />
 
-		<!-- Publish wheel odometry from MCU encoder data -->
-		<node pkg="husky_base" name="husky_basic_odom" type="basic_odom_publisher" />
+    <!-- Publish wheel odometry from MCU encoder data -->
+    <node pkg="husky_base" name="husky_basic_odom" type="basic_odom_publisher" />
 
-		<!-- Diagnostic Aggregator -->
+    <!-- Diagnostic Aggregator -->
 
-		<node pkg="diagnostic_aggregator" type="aggregator_node" name="diagnostic_aggregator">
-		<rosparam command="load" file="$(find husky_base)/config/diagnostics.yaml"/>
-		</node>
-	</launch>
+    <node pkg="diagnostic_aggregator" type="aggregator_node" name="diagnostic_aggregator">
+    <rosparam command="load" file="$(find husky_base)/config/diagnostics.yaml"/>
+    </node>
+  </launch>
 
 The first thing to notice is the <launch> tags which are required for all launch files. The next line finds what port Husky is connected to, and saves it to an argument named "port". The node "kinematic_node" from the package"clearpath_base" is then started in the "husky" name space.
 
-Parameters within the <node> tags are private to that namepace. The "port" argument that was defined earlier is set to the port parameter. Several other parameters are populated using the YAML format with <parameter> tags.
+Parameters within the ``<node>`` tags are private to that namepace. The "port" argument that was defined earlier is set to the port parameter. Several other parameters are populated using the YAML format with ``<parameter>`` tags.
 
 Along with the kinematic_node node, this launch file also starts husky_base_diagnositcs and husky_base_odom. You can see that the parameters for the diagnostics_aggregator node are loaded from a YAML file.
 
