@@ -28,7 +28,7 @@ And then in a new terminal tab we can launch rqt
 
 In the Plugins menu, select each plugin you want to load. You can change the layout by dragging and rescaling each plugin by its title bar or edges.
 
-.. image:: pluginselection.png
+.. image:: graphics/pluginselection.png
     :scale: 50 %
 
 A Practical Example
@@ -47,7 +47,7 @@ You can mimize Gazebo for now as we set up our rqt dashboard. Begin by opening t
 * Bag
 * Robot Steering
 
-.. image:: With_Plugins.png
+.. image:: graphics/With_Plugins.png
 	:scale: 50 %
 
 Each plugin has their own uses and settings, for more information about a particular plugin, visit the `rqt plugins page of the ROS Wiki <http://wiki.ros.org/rqt/Plugins>`_.
@@ -69,10 +69,10 @@ Some plugins allow you to configure options that impact its installation and beh
 
 **Rviz:** To load Husky into your Rviz plugin, select **open config** from the drop down menu, and navigate to **/opt/ros/kinetic/share/husky_viz/rviz/view_robot.rviz**. You should now see a model of Husky loaded in Rviz! By default, this config file will include the simulated laser, and you can see the object in Husky's path in the Gazebo environment.
 
-.. image:: load_config_rqt.png
+.. image:: graphics/load_config_rqt.png
 	:scale: 50 %
 
-.. image:: with_plugins_Gazebo.png
+.. image:: graphics/with_plugins_Gazebo.png
 	:scale: 50 %
 
 **Plot:** The Plot tool is useful to plot a particular topic in real time, for this example we will be plotting the commanded odometery topic versus the simulated odometrey. In the input window on the top right of the plot plugin, add the follow topic in each plot.
@@ -87,7 +87,7 @@ and
 
 It's time to put it together! Try commanding Husky to turn in place using the robot steering plugin, and watch your Husky is RViz spin in place while it's updating the laser scan! You should also see the commanded odometry in one of your plots, while the actual odometry lags slightly behind as it catches up to the desired value.
 
-.. image:: graph_topics.png
+.. image:: graphics/graph_topics.png
 	:scale: 50 %
 
 **Rqt bag**: Rosbag is an extremely useful tool  for logging, and our support team may often ask for a bag file to take a closer look at your system. It's possible to record a bag through the terminal, but using rqt is much simpler and more intuitive. Let's record  a bag file of Husky driving around by clicking the record button, and selecting the topics you want to record. Once you're happy with the data recorded, stop the recording.
@@ -106,7 +106,7 @@ And open rqt back up and load the ROS bag plugin again
 
 This time we are going to open up the bag file we just recorded by clicking the 2nd button. You'll now see all the topics that were recorded, and when messages were sent over that topic. You can take a closer look at a particular ticket by right clicking and selecting to view either the values or plot a particular topic.
 
-.. image:: Bag_reply.png
+.. image:: graphics/Bag_reply.png
 	:scale: 50 %
 
 For more information regarding rqt, please visit the `ROS Wiki page <http://wiki.ros.org/rqt>`_, if you have any questions regarding this particular tutorial, please don't hesitate to contact us!

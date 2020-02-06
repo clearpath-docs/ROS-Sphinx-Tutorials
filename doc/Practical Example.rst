@@ -19,15 +19,15 @@ Follow along to see how we actually ‘do’ all of these things….
 
 3. 	Open a new Terminal Window (Ctrl + Alt + T). In the new terminal, type roscore (And press enter) This should produce something similar to the below.
 
-.. image:: PExampleone.png
+.. image:: graphics/PExampleone.png
 
 What you have just done is started the ROS Master as we described above. We can now experiment with some ROS commands.
 
-Open a new **Terminal**, and type in **rostopic**. This will give you a list of all the options that the rostopic command can do.
+Open a new **Terminal**, and type in ``rostopic``. This will give you a list of all the options that the rostopic command can do.
 
-For now, we are interested in rostopic list. Type in **rostopic list**. (And press enter). This should give you a window like the following:
+For now, we are interested in rostopic list. Type in ``rostopic list``. (And press enter). This should give you a window like the following:
 
-.. image:: PExampletwo.png
+.. image:: graphics/PExampletwo.png
 
 The two entries listed above are ROS’s built in way of reporting and aggregating debug messages in the system. What we want to do is publish and subscribe to a message.
 
@@ -38,41 +38,41 @@ In the new Terminal, type in (**NOTE:** This command will not work if you try to
 
     rostopic pub /hello std_msgs/String “Hello Robot"
 
-.. image:: PExamplethree.png
+.. image:: graphics/PExamplethree.png
 
 Let’s break down the parts of that command.
 
-**rostopic pub** – This commands ROS to publish a new topic.
+``rostopic pub`` – This commands ROS to publish a new topic.
 
-**/hello** – This is the name of the new topic. (Can be whatever you want)
+``/hello`` – This is the name of the new topic. (Can be whatever you want)
 
-**std_msgs/String** – This is the topic type. We want to publish a string topic. In our overview examples above, it was an image data type.
+``std_msgs/String`` – This is the topic type. We want to publish a string topic. In our overview examples above, it was an image data type.
 
-**“Hello Robot”** – This is the actual data contained by the topic. I.E. the message itself.
+``“Hello Robot”`` – This is the actual data contained by the topic. I.E. the message itself.
 
 Going back to the previous Terminal, we can execute rostopic list again.
 
-We now have a new topic listed! We can also echo the topic to see the message by entering **rostopic echo /hello**.
+We now have a new topic listed! We can also echo the topic to see the message by entering ``rostopic echo /hello``.
 
-.. image:: PExamplefour.png
+.. image:: graphics/PExamplefour.png
 
 We have now successfully published a topic with a message, and received that message.
 Type **Ctrl + C** to stop echoing the /hello topic. We can also look into the node that is publishing the message.
-Type in **rosnode list**. You will get a list similar to the one below. (The exact numbers beside the rostopic node may be different)
+Type in ``rosnode list``. You will get a list similar to the one below. (The exact numbers beside the rostopic node may be different)
 
-.. image:: PExamplefive.png
+.. image:: graphics/PExamplefive.png
 
-Because we asked rostopic to publish the /hello topic for us, ROS went ahead and created a node to do so. We can look into details of by typing **rosnode info /rostopic/_…..(whatever numbers)**
+Because we asked rostopic to publish the /hello topic for us, ROS went ahead and created a node to do so. We can look into details of the node by typing ``rosnode info /rostopic_...(whatever numbers)``
 
 
 **TIP:** In ROS, and in Linux in general, whenever you start typing something, you can press the Tab key to auto-complete it.
 If there is more than one entry, double tap Tab to get the list. In the above example, all I typed was rosnode info /rost(TAB)
 
-.. image:: PExamplesix.png
+.. image:: graphics/PExamplesix.png
 
-We can get info on our topic the same way, by typing **rostopic info /hello**
+We can get info on our topic the same way, by typing ``rostopic info /hello``
 
-.. image:: PExampleseven.png
+.. image:: graphics/PExampleseven.png
 
 You will notice that the node listed under “Publishers:” is the same node we requested info about.
 

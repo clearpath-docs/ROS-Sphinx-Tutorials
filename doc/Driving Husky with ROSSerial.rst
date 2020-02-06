@@ -24,7 +24,7 @@ Once you open up the Arduino IDE for the first time, a directory named "sketchbo
 
 Restart your Arduino IDE and you should see the ros_lib part of your libraries!
 
-.. image:: ros_lib_check.PNG
+.. image:: graphics/ros_lib_check.png
     :scale: 50 %
 
 You'll want to ensure that your Ubuntu user is part of the "Dailout" group, which grants you access to serial ports. You can check by using
@@ -43,7 +43,7 @@ One last step to make our lives easier will be to create udev rules so your Ardu
 
 **NOTE:** If you are using a virtual machine, you will have to connect Arduino to the virtual machine after plugging it in.
 
-.. image:: attaching_device.jpg
+.. image:: graphics/attaching_device.jpg
     :scale: 50 %
 
 You can confirm your system is actually connected to Arduino by running
@@ -140,7 +140,7 @@ All that's left is to attach the Arduino into our ROS environment using:
 
 We're ready to try it out! Go ahead and touch the digital pin 8 and you should see Husky drive forward! Similarly if you touch digital pin 4 Husky will drive backwards.
 
-.. image:: ArduinoUno_r2_front450px.jpg
+.. image:: graphics/ArduinoUno_r2_front450px.jpg
 
 
 This trick is made possible by a phenomenon known as `parasitic capacitance <http://en.wikipedia.org/wiki/Parasitic_capacitance>`_, which is usually an unwanted effect in electronics design, but serves nicely for the purpose of our example. That being said, this isn't the most reliable method, and is intended to provide a simple example with minimal equipment.  If you are having difficulties moving your simulated Husky, try using rostopic echo /husky/cmd_vel to verify some commands are in fact being sent to Husky when you touch the pins.

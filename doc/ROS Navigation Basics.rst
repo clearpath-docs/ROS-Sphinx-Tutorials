@@ -28,7 +28,7 @@ In addition, we'll need the Jackal navigation package, but instead of installing
   cd ..
   catkin_make
 
-.. image:: workspaceSetup.png
+.. image:: graphics/workspaceSetup.png
       :scale: 75%
 
 The **Jackal_navigation** package simply contains configuration files in the params directory, and launch files to load these parameters and launch certain packages in the ROS navigation stack. The navigation stack is where the real magic happens when it comes to navigating with a ROS robot. Let's begin by launching our Jackal simulation with a simulated laser.
@@ -61,7 +61,7 @@ If you're familiar with ROS launch files, I'd encourage you to take a look `here
   source ~/jackal_navigation/devel/setup.bash
   roslaunch jackal_viz view_robot.launch config:=gmapping
 
-.. image:: gmappingconfig.png
+.. image:: graphics/gmappingconfig.png
   :scale: 75%
 
 Take a look around and get familiar with all the different displays on the left side of the window. Notice there are two maps. One is visualizing the **/map** topic, which is what is being built from the gmapping demo as the robot moves around.  If you click the check box beside the other map, you can now see the costmap from **/move_base/global_costmap/costmap**. The costmap is responsible for the inflation around obstacles to account for the footprint of the robot; the larger the inflation radius, the further the robot will keep away from these obstacles.
@@ -73,7 +73,7 @@ Mapping
 
 Now it's time to start mapping! Using the tool bar on the top of the Rviz window, send 2D Nav Goals to Jackal. As it drives around, more of the map will be discovered. Also notice the path and how it changes as Jackal finds obstacles.
 
-.. image:: jackalsavedmap.png
+.. image:: graphics/jackalsavedmap.png
   :scale: 75%
 
 Localization
@@ -97,13 +97,13 @@ When launching the AMCL demo below (second line of code), be sure to include the
 
 For the purpose of this demonstration, I recommend hiding the Robot Model and Axes, and showing the Pose Array using the check boxes on the side. The red arrows around Jackal are the poses Jackal could be, based on a Monte Carlo localization estimate. This takes in scan data and transforms, and evaluates that data against the map we recorded previously to try to determine where it is within the Jackal world.
 
-.. image:: jackalposearray.png
+.. image:: graphics/jackalposearray.png
   :scale: 75%
 
 
 If you give Jackal a 2D nav goal, you can see how the pose array gets much more refined, as the system takes in more information about its surrounding, and rules out possible poses.
 
-.. image:: smallposearray.png
+.. image:: graphics/smallposearray.png
   :scale: 75%
 
 Another important tool is the 2D pose estimate. You can assist Jackal in localization by giving it a rough idea of where it should be in the map. You'll notice that the pose array will get populated in the general area of a 2D pose estimate, and once again gets refined as it eliminates poses.
@@ -139,7 +139,7 @@ From here, you can open up any of the demos we used earlier, or go straight into
 
 At this point, I invite you to play around with these new sensors and try adding them into Rviz so you can see the different images from the cameras.
 
-.. image:: jackalfullyloaded.png
+.. image:: graphics/jackalfullyloaded.png
   :scale: 75%
 
 If you really want to get adventurous, try changing some of the navigation parameters in the **jackal_navigation** launch files. You could also try mapping different Gazebo worlds using the many that are available online, or even making your own!

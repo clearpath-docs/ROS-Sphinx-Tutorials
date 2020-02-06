@@ -3,7 +3,7 @@ Getting Started with Ubuntu
 
 To learn how to use ROS, we must first learn the basics of Ubuntu! Ubuntu is a Linux based open source operating system. The bulk of development will be done using the terminal. You can open up a terminal window by clicking the terminal icon or by typing "terminal" in the start menu.
 
-.. image:: UbuntuScreen.png
+.. image:: graphics/UbuntuScreen.png
 
 To use the terminal, simply type in a command in the window and push "enter". When working in a terminal, the directory you are currently located in is called the "working directory" and shown at the start of the terminal line.  Here are some of the most used commands
 

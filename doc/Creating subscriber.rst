@@ -98,7 +98,7 @@ In this tutorial we have provided a launch file that will start the random_drive
   source ~/catkin_ws/devel/setup.bash
   roslaunch ros101 odom_graph_test.launch
 
-.. image:: ROS101-GitHub1.png
+.. image:: graphics/ROS101-GitHub1.png
     :scale: 50 %
 
 

@@ -29,13 +29,13 @@ You should be given two windows, both showing a yellow, rugged robot (Grizzly!).
 This is where we get a realistic simulation of our robot, including wheel slippage, skidding, and inertia.
 We can add objects to this simulation, or even entire maps of real places.
 
-.. image:: grizzlysim.png
+.. image:: graphics/grizzlysim.png
 	:scale: 75%
 
 
 This window below is RViz. This tool allows us to see sensor data from a robot, and give it commands (in a future post). RViz is a more simplified simulation in the interest of speed.
 
-.. image:: grizzlyviz.png
+.. image:: graphics/grizzlyviz.png
 	:scale: 75%
 
 We can now command the robot to go forwards. Open a terminal window, and copy the following:

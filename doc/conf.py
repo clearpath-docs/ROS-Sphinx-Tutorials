@@ -54,12 +54,12 @@ html_show_sphinx = False
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-html_logo = 'clearpathlogo.png'
+html_logo = 'graphics/clearpathlogo.png'
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
-html_favicon = 'favicon.ico'
+html_favicon = 'graphics/favicon.ico'
 
 # -- Options for LaTeX output ------------------------------------------------
 latex_engine = "xelatex"
@@ -89,6 +89,6 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'ROSTutorials.tex', 'ROS Tuturials',
+    (master_doc, 'ROSTutorials.tex', 'ROS Tutorials',
      'Dave Niewinski', 'manual'),
 ]

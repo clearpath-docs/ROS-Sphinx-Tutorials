@@ -105,7 +105,7 @@ the **<geometry_msgs/Twist.h>** is added so that we can create a message of that
 	ros::init(argc, argv, "random_husky_commands");
 	ros::NodeHandle nh;
 
-The first line, ros:/:init,  is used to initialize the ROS node, and name it "random_husky_commands", while ros:NodeHandle starts the node.
+The first line, ros::init,  is used to initialize the ROS node, and name it "random_husky_commands", while ros:NodeHandle starts the node.
 
 .. code-block:: c
 
@@ -146,7 +146,7 @@ This creates the message we are going to send, msg, of the type **geometry_msgs:
 	msg.linear.x=4*double(rand())/double(RAND_MAX)-2;
 	msg.angular.z=6*double(rand())/double(RAND_MAX)-3;
 
-.. image:: huskycords.png
+.. image:: graphics/huskycords.png
   :scale: 75%
 
 These lines calculate the random linear x and angular z values that will be sent to Husky.
@@ -159,7 +159,7 @@ We are finally ready to publish the message! The **pub.publish** adds msg to the
 
 Compiling the Random Husky Driver
 ----------------------------------
-Compilation in ROS in handled by the catkin build system. The first step would usually be to set up our package dependencies in
+Compilation in ROS is handled by the catkin build system. The first step would usually be to set up our package dependencies in
 the **CMakeLists.txt** and **package.xml**. However this has already been done for us when we created the package and specified our
 dependencies. The next step is then to declare our new node as a executable, this is done by adding the following two
 lines to the **CMakeLists.txt** files in **~/ros101/src/random_husky_driver**. You can add them as the last two lines in the file.
@@ -205,6 +205,6 @@ we can make sure that our node is publishing to the **/husky_velocity_controller
 
 	rostopic echo /husky_velocity_controller/cmd_vel
 
-.. image:: randomecho.png
+.. image:: graphics/randomecho.png
 
 You should now see a stream of random linear x and angular z values.

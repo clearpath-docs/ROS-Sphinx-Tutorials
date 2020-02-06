@@ -1,7 +1,28 @@
 Drive a Husky
 ==============
 
-Updating the Virtual Machine
+Add Clearpath ROS Repository
+-------------------------------
+
+Before you can install the Clearpath Robotics Husky packages, you need to configure Ubuntu's APT package manager to
+add Clearpath's package server.  You can do this by running the following commands in the terminal:
+
+.. code-block:: bash
+
+		wget https://packages.clearpathrobotics.com/public.key -O - | sudo apt-key add -
+
+.. code-block:: bash
+
+		sudo sh -c 'echo "deb https://packages.clearpathrobotics.com/stable/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/clearpath-latest.list'
+
+.. code-block:: bash
+
+		sudo apt-get update
+
+Note that the virtual machine image comes pre-configured, so these steps are not necessary.  Full instructions for setting
+up these packages can be found here: http://wiki.ros.org/ClearpathRobotics/Packages
+
+Install the Husky Packages
 ------------------------------
 Open a terminal window (Ctrl + Alt + T), and enter the following:
 
@@ -28,12 +49,12 @@ You should be given two windows, both showing a yellow, rugged robot (Husky!)
 
 **RViz**
 
-.. image:: Huskyviz.png
+.. image:: graphics/Huskyviz.png
 	:scale: 50%
 
 **Gazebo**
 
-.. image:: Huskysim.png
+.. image:: graphics/Huskysim.png
 	:scale: 50%
 
 The left one shown is Gazebo. This is where we get a realistic simulation of our robot, including wheel slippage, skidding, and inertia.
@@ -53,7 +74,7 @@ We can now command the robot to go forwards. Open a terminal window, and use the
 		y: 0.0
 		z: 0.0" -r 10
 
-In the above command, we publish to the **/husky_velocity_controller/cmd_vel topic**, of topic type **geometry_msgs/Twist**.
+In the above command, we publish to the ``/husky_velocity_controller/cmd_vel`` **topic**, of topic type ``geometry_msgs/Twist``.
 The data we publish tells the simulated Husky to go forwards at 0.5m/s, without any rotation. You should see your Husky move forwards.
 In the gazebo window, you might notice simulated wheel slip, and skidding.
 
@@ -66,18 +87,18 @@ We can also see the structure of how topics are passed around the system. Leave 
 
 This command generates a representation of how the nodes and topics running on the current ROS Master are related. You should get something similar to the following:
 
-.. image:: rqtgraph.png
+.. image:: graphics/rqtgraph.png
 
-The highlighted node and arrow show the topic that you are publishing to the simulated Husky. This Husky then goes on to update the gazebo virtual environment,
+The highlighted node and arrow in the image above show the topic that you are publishing to the simulated Husky. This Husky then goes on to update the gazebo virtual environment,
 which takes care of movement of the joints (wheels) and the physics of the robot.
 The rqt_graph command is very handy to use, when you are unsure who is publishing to what in ROS.
-Once you figure out what topic you are interested in, you can see the content of the topic using **rostopic echo**.
+Once you figure out what topic you are interested in, you can see the content of the topic using ``rostopic echo <topic>``.
 
 Using tf
 -----------
 
 In ROS, tf is a special topic that keeps track of coordinate frames, and how they relate to each other.
-So, our simulated Husky starts at (0,0,0) in the world coordinate frame. When the Husky moves, it’s own coordinate frame changes.
+So, our simulated Husky starts at (0,0,0) in the world coordinate frame. When the Husky moves, its own coordinate frame changes.
 Each wheel has a coordinate frame that tracks how it is rotating, and where it is. Generally, anything on the robot that is not fixed in space, will have a tf describing it.
 In the **rqt_graph section**, you can see that the **/tf topic** is published to and subscribed from by many different nodes.
 
@@ -93,7 +114,7 @@ Wait for this to complete, and then type in:
 
 This will bring up something similar to the following image.
 
-.. image:: tfframes.png
+.. image:: graphics/tfframes.png
 
 Here we can see that all four wheel are referenced to the **base_link**. We also see that the **odom topic** is driving the reference of the whole robot.
 This means that if you write to the **odom topic** (IE, when you publish to the **/cmd_vel topic**) then the whole robot will move.

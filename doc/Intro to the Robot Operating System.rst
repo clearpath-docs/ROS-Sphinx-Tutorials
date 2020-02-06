@@ -29,7 +29,7 @@ That way, we do not have to ever specifically state “Send this sensor data to 
 We can simply tell Node 1 to send messages to Node 2.
 
 
-.. image:: ros101one.png
+.. image:: graphics/ros101one.png
 	:scale: 75%
 
 How do Nodes do this? By publishing and subscribing to Topics.
@@ -40,7 +40,7 @@ In our example, we have a Camera Node that takes care of communication with the 
 and a Image Display Node that displays images on a screen. To start with, all Nodes have registered with the Master.
 Think of the Master as a lookup table where all the nodes go to find where exactly to send messages.
 
-.. image:: ros101two.png
+.. image:: graphics/ros101two.png
 	:scale: 75%
 
 In registering with the ROS Master, the Camera Node states that it will Publish a Topic called /image_data (for example).
@@ -48,7 +48,7 @@ Both of the other Nodes register that they areSubscribed to the Topic /image_dat
 
 Thus, once the Camera Node receives some data from the Camera, it sends the /image_data message directly to the other two nodes. (Through what is essentially TCP/IP)
 
-.. image:: ros101three.png
+.. image:: graphics/ros101three.png
 	:scale: 75%
 
 Now you may be thinking, what if I want the Image Processing Node to request data from the Camera Node at a specific time? To do this, ROS implements Services.
@@ -56,5 +56,5 @@ Now you may be thinking, what if I want the Image Processing Node to request dat
 A Node can register a specific service with the ROS Master, just as it registers its messages.
 In the below example, the Image Processing Node first requests /image_data, the Camera Node gathers data from the Camera, and then sends the reply.
 
-.. image:: ros101four.png
+.. image:: graphics/ros101four.png
 	:scale: 75%
