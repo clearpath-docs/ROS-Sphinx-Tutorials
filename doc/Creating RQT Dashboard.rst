@@ -77,11 +77,15 @@ Some plugins allow you to configure options that impact its installation and beh
 
 **Plot:** The Plot tool is useful to plot a particular topic in real time, for this example we will be plotting the commanded odometery topic versus the simulated odometrey. In the input window on the top right of the plot plugin, add the follow topic in each plot.
 
-/odometry/filtered/twist/twist/angular/z
+.. code-block:: text
+
+  /odometry/filtered/twist/twist/angular/z
 
 and
 
-/husky_velocity_controller/odom/twist/twist/angular/z
+.. code-block:: text
+
+  /husky_velocity_controller/odom/twist/twist/angular/z
 
 **Robot Steering:** The robot steering plugin provides us with a simple way to manually drive Husky, all that is required is to specify the topic which accepts the velocity commands to move your Robot, for our virtual Husky, that topic is **/cmd_vel**.
 
