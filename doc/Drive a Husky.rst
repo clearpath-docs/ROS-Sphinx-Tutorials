@@ -7,13 +7,19 @@ Add Clearpath ROS Repository
 Before you can install the Clearpath Robotics Husky packages, you need to configure Ubuntu's APT package manager to
 add Clearpath's package server.  You can do this by running the following commands in the terminal:
 
+1. First install the authentication key for the packages.clearpathrobotics.com repository:
+
 .. code-block:: bash
 
 		wget https://packages.clearpathrobotics.com/public.key -O - | sudo apt-key add -
 
+2. Add the debian sources for the repository:
+
 .. code-block:: bash
 
 		sudo sh -c 'echo "deb https://packages.clearpathrobotics.com/stable/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/clearpath-latest.list'
+
+3. Update your computer's package cache:
 
 .. code-block:: bash
 
@@ -74,7 +80,7 @@ We can now command the robot to go forwards. Open a terminal window, and use the
 		y: 0.0
 		z: 0.0" -r 10
 
-In the above command, we publish to the ``/husky_velocity_controller/cmd_vel`` **topic**, of topic type ``geometry_msgs/Twist``.
+In the above command, we publish to the **/husky_velocity_controller/cmd_vel topic**, of topic type ``geometry_msgs/Twist``.
 The data we publish tells the simulated Husky to go forwards at 0.5m/s, without any rotation. You should see your Husky move forwards.
 In the gazebo window, you might notice simulated wheel slip, and skidding.
 
@@ -116,5 +122,5 @@ This will bring up something similar to the following image.
 
 .. image:: graphics/tfframes.png
 
-Here we can see that all four wheel are referenced to the **base_link**. We also see that the **odom topic** is driving the reference of the whole robot.
-This means that if you write to the **odom topic** (IE, when you publish to the **/cmd_vel topic**) then the whole robot will move.
+Here we can see that all four wheel are referenced to the **base_link**. We also see that the **/odom topic** is driving the reference of the whole robot.
+This means that if you write to the **/odom topic** (IE, when you publish to the **/cmd_vel topic**) then the whole robot will move.

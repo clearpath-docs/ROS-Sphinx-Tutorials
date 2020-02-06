@@ -30,7 +30,7 @@ We can simply tell Node 1 to send messages to Node 2.
 
 
 .. image:: graphics/ros101one.png
-	:scale: 75%
+  :scale: 75%
 
 How do Nodes do this? By publishing and subscribing to Topics.
 
@@ -41,7 +41,7 @@ and a Image Display Node that displays images on a screen. To start with, all No
 Think of the Master as a lookup table where all the nodes go to find where exactly to send messages.
 
 .. image:: graphics/ros101two.png
-	:scale: 75%
+  :scale: 75%
 
 In registering with the ROS Master, the Camera Node states that it will Publish a Topic called /image_data (for example).
 Both of the other Nodes register that they areSubscribed to the Topic /image_data.
@@ -49,7 +49,7 @@ Both of the other Nodes register that they areSubscribed to the Topic /image_dat
 Thus, once the Camera Node receives some data from the Camera, it sends the /image_data message directly to the other two nodes. (Through what is essentially TCP/IP)
 
 .. image:: graphics/ros101three.png
-	:scale: 75%
+  :scale: 75%
 
 Now you may be thinking, what if I want the Image Processing Node to request data from the Camera Node at a specific time? To do this, ROS implements Services.
 
@@ -57,4 +57,19 @@ A Node can register a specific service with the ROS Master, just as it registers
 In the below example, the Image Processing Node first requests /image_data, the Camera Node gathers data from the Camera, and then sends the reply.
 
 .. image:: graphics/ros101four.png
-	:scale: 75%
+  :scale: 75%
+
+
+Important Terms
+----------------------
+
+See also: `ROS Concepts <http://wiki.ros.org/ROS/Concepts>`_
+
+================= ===============================================================
+Term              Meaning
+================= ===============================================================
+ROS Master        The core process that coordinates multiple **nodes** and allows them to communicate with each other
+Node              A piece of software that subscribes to and/or publishes **messages** sent on different **topics**
+Message           A data structure containing one or more fields.  **Nodes** receive, process, and publish messages
+Topic             Identifies the content of a **message**.  **Nodes** that wish to consume a certain type of message subscribe to the topic that contains those messages.
+================= ===============================================================
