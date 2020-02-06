@@ -187,10 +187,6 @@ Let's bring up the husky visualization as we did in a previous blog post.
 
   roslaunch husky_gazebo husky_empty_world.launch
 
-.. note::
-
-  Remember that **roscore** must be running before you can use **roslaunch** or **rosrun**
-
 The final step is to source your setup.bash file in the workspace you have created.
 This allows ROS to find the packages that are contained in your workspace.
 Dont forget this process will have to be done on every new terminal instance!
