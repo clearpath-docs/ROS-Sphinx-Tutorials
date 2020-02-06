@@ -19,7 +19,7 @@ Command                         Description
 ``gedit <file>``                Opens a GUI text editor to edit <file>
 ``nano <file>``                 Opens a basic text editor in the terminal to edit <file>
 ``rm <file>``                   Deletes <file>. You cannot recover the file once it has been deleted!
-``rm -rf <folder>``             Deletes <folder> and all its contents.  You cannot recover the deleted files once they're gone!
+``rm -rf <folder>``             Deletes <folder> and all its contents.  **You cannot recover the deleted files once they're gone!**
 ``mv <src> <dest>``             Moves (or renames) <src> to <dest>
 ``sudo <command>``              Executes the command as the superuser (root), allowing you to modify, create, or delete system files
 ``echo $<ENV_VAR>``             Print an environment variable.  For example ``echo $ROS_MASTER_URI`` will print the URI of the ROS master.  (We'll cover more about what ROS master is in the next section.)
