@@ -25,19 +25,28 @@ Command                         Description
 ``echo $<ENV_VAR>``             Print an environment variable.  For example ``echo $ROS_MASTER_URI`` will print the URI of the ROS master.  (We'll cover more about what ROS master is in the next section.)
 ``export <ENV_VAR>=<value>``    Assign a new value to an environment variable.  For example, to connect to the ROS master on a remote computer you could run ``export ROS_MASTER_URI=http://remote-host:11311``
 ``source <file>``               Load a file containing environment variables and apply them to the current terminal.  e.g. ``source /opt/ros/kinetic/setup.bash``
+``whoami``                      Prints your Linux username
+``groups <user>``               Prints the Linux permission groups the specified user is a member of
 =============================== ============================================================================================================
+
+.. note::
+
+  In Linux commands, filenames, folder names, etc... are **case sensitive**.  Whenever you see a command always make
+  sure to write it out with the exact same capitalization.
+
+  For example, ``ls $HOME`` will print the contents of your home folder, but ``LS $HOME`` will cause an error.
 
 There are certain special characters that can be used in the terminal to make life easier.
 
 ===================== ============================================================================================================
 Character(s)          Description
 ===================== ============================================================================================================
-``~``                 Expands to the user's home folder (``/home/<your-username>``).  $HOME does the same thing
+``~``                 Expands to the user's home folder (``/home/<your-username>``).  ``$HOME`` does the same thing
 ``.``                 The current directory.  For example ``ls ."`` will print the contents of the current directory
 ``..``                The parent directory.  To move higher up the directory tree you can use ``cd ..``
 ``&``                 Placed at the end of a command to run it in the background.  e.g. ``gedit <file> &``
 ``*``                 Wildcard for matching files.  e.g. ``ls *.png`` will list all PNG files in the current directory
-``$(<command>)``      Executes the internal command and replaces the ``$(...)`` portion with the output of the inner command.  e.g. ``sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/``
+``$(<command>)``      Executes the internal command and replaces the ``$(...)`` portion with the output of the inner command.  e.g. ``groups $(whoami)`` will replace ``$(whoami)`` with your username, and print the permission groups your account belongs to
 ===================== ============================================================================================================
 
 Some common shortcuts for the terminal:
@@ -63,7 +72,7 @@ Ubuntu programs are installed from repositories.  A repository is a specially-st
 
 ROS packages will be named ``ros-*``. For example, to install Clearpath Robotics' ROS |ros_distro| Husky packages you would use:
 
-.. parsed-literal::
+.. substitution-code-block:: bash
 
 	sudo apt-get install ros-|ros_distro|-husky-desktop
 

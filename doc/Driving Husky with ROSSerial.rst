@@ -31,13 +31,15 @@ You'll want to ensure that your Ubuntu user is part of the "Dailout" group, whic
 
 .. code-block:: bash
 
-  groups "username”
+  groups $(whoami)
 
-If you don't see "dailout", you can easily add yourself using
+If you don't see ``dailout``, you can easily add yourself using
 
 .. code-block:: bash
 
-  sudo gpasswd --add "username" dialout
+  sudo usermod -a -G dialout $(whoami)
+
+After running ``sudo usermod <...>`` you will need to log out and log back in again for the changes to your user account to take effect.
 
 One last step to make our lives easier will be to create udev rules so your Arduino is  recognized when plugged in and the correct permissions are set. For more information on udev rules check out our udev article . Begin by plugging in your Arduino.
 
