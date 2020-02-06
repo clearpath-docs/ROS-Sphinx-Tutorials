@@ -11,16 +11,12 @@ First we will need to create a new directory.
 
 .. code-block:: bash
 
-    mkdir ~/ros101
+    mkdir -p ~/ros101/src
 
-This created a directory in your home folder which we will use as a workspace directory.
-We now need to create a subdirectory in your workspace directory to store all your source code for your packages
+This created a directory in your home folder, **ros101**, which we will use as a workspace directory.  Inside that
+folder it also created a folder called **src**, in which you will store the source code for your packages.
 
-.. code-block:: bash
-
-    mkdir ~/ros101/src
-
-The last step to creating the workspace will be to initialize the workspace with **catkin_init_workspace**.
+The last step to creating the workspace will be to initialize the workspace with ``catkin_init_workspace``.
 
 .. code-block:: bash
 
@@ -29,12 +25,13 @@ The last step to creating the workspace will be to initialize the workspace with
 
 Now that our workspace has been created, we will create a package in the src directory we just created.
 This can be done by navigating to the **~/ros101/src directory**, which you should have already done in the last step.
-We can create the package using the **catkin_create_pkg** command  followed by what we want the package to be named, and then followed by what other packages
+We can create the package using the ``catkin_create_pkg`` command  followed by what we want the package to be named, and then followed by what other packages
 our package will be dependent on. All this command really does is creates another directory for your new package, and two new configuration
 files inside that directory with some default settings.
 
 .. code-block:: bash
 
+    cd ~/ros101/src
     catkin_create_pkg random_husky_driver roscpp std_msgs
 
 You can see that this created **CMakeLists.txt** and **package.xml** inside the random_husky_driver directory,
@@ -50,6 +47,7 @@ Start by creating a file in your **~/ros101/src/random_husky_driver** directory 
 
 .. code-block:: bash
 
+    cd ~/ros101/src/random_husky_driver/src
     gedit random_driver.cpp
 
 This will create and open the new driver file. Within the new driver file, copy the following code.
@@ -164,10 +162,15 @@ the **CMakeLists.txt** and **package.xml**. However this has already been done f
 dependencies. The next step is then to declare our new node as a executable, this is done by adding the following two
 lines to the **CMakeLists.txt** files in **~/ros101/src/random_husky_driver**. You can add them as the last two lines in the file.
 
+.. code-block:: text
+
+  add_executable(random_driver src/random_driver.cpp)
+  target_link_libraries(random_driver ${catkin_LIBRARIES})
+
 .. code-block:: bash
 
-	add_executable(random_driver random_driver.cpp)
-	target_link_libraries(random_driver ${catkin_LIBRARIES})
+  cd ~/ros101/src/random_husky_driver
+  gedit CMakeLists.txt
 
 The first line creates the executable called random_driver, and directs ROS to it's source files.
 The second lines specifies what libraries will be used.
@@ -182,7 +185,11 @@ Let's bring up the husky visualization as we did in a previous blog post.
 
 .. code-block:: bash
 
-	roslaunch husky_gazebo husky_empty_world.launch
+  roslaunch husky_gazebo husky_empty_world.launch
+
+.. note::
+
+  Remember that **roscore** must be running before you can use **roslaunch** or **rosrun**
 
 The final step is to source your setup.bash file in the workspace you have created.
 This allows ROS to find the packages that are contained in your workspace.
@@ -199,7 +206,7 @@ It's now time to test it out! With gazebo still running, lets start the node.
 	rosrun random_husky_driver random_driver
 
 You should now see Husky drive around! In a new terminal window,
-we can make sure that our node is publishing to the **/husky_velocity_controller/cmd_vel** topic by echoing all messages on this topic
+we can make sure that our node is publishing to the **/husky_velocity_controller/cmd_vel topic** by echoing all messages on this topic
 
 .. code-block:: bash
 
