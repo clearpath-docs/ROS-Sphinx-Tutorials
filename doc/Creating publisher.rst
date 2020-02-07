@@ -147,7 +147,8 @@ This creates the message we are going to send, msg, of the type **geometry_msgs:
 .. image:: graphics/huskycords.png
   :scale: 75%
 
-These lines calculate the random linear x and angular z values that will be sent to Husky.
+These lines calculate the random linear x and angular z values that will be sent to Husky.  Linear values are expressed
+in **m/s**, and angular values are expresed in **rad/s**.
 
 .. code-block:: c
 
