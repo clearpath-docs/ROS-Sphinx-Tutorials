@@ -7,8 +7,8 @@ Open a terminal window (Ctrl + Alt + T), and enter the following:
 
 .. parsed-literal::
 	sudo apt-get update
-	sudo apt-get install ros-kinetic-husky-desktop
-	sudo apt-get install ros-kinetic-husky-simulator
+	sudo apt-get install ros-melodic-husky-desktop
+	sudo apt-get install ros-melodic-husky-simulator
 
 
 Running a Virtual Husky
