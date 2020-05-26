@@ -52,7 +52,7 @@ The @(...) format below may be familiar to anyone who's used empy.  Just replace
     nodelet::M_string remap(ros::names::getRemappings());
     nodelet::V_string nargv;
     std::string nodelet_name = ros::this_node::getName();
-    nodelet.load(nodelet_name, "@(package)/@(nodelet)", remap, nargv);
+    nodelet.load(nodelet_name, "Package/Nodelet", remap, nargv);
     ros::spin();
     return 0;
     }
@@ -64,20 +64,20 @@ The @(...) format below may be familiar to anyone who's used empy.  Just replace
   #include "ros/ros.h"
   #include "nodelet/nodelet.h"
 
-  namespace @(namespace)
+  namespace Namespace
   {
 
-    class @(NodeletClass) : public nodelet::Nodelet
+    class NodeletClass : public nodelet::Nodelet
     {
     public:
-    @(NodeletClass)();
+    NodeletClass();
 
     private:
     virtual void onInit(){
     nh = getNodeHandle();
     private_nh = getPrivateNodeHandle();
-    timer_ = nh.createTimer(ros::Duration(1.0), boost::bind(& @(NodeletClass)::timerCb, this, _1));
-    sub_ = nh.subscribe("incoming_chatter", 10, boost::bind(& @(NodeletClass)::messageCb, this, _1));
+    timer_ = nh.createTimer(ros::Duration(1.0), boost::bind(& NodeletClass::timerCb, this, _1));
+    sub_ = nh.subscribe("incoming_chatter", 10, boost::bind(& NodeletClass::messageCb, this, _1));
     pub_ = private_nh.advertise<std_msgs::String>("outgoing_chatter", 10);
     };
 
@@ -105,6 +105,6 @@ The @(...) format below may be familiar to anyone who's used empy.  Just replace
     ros::Timer timer_;
     };
 
-  } // namespace @(namespace)
+  } // namespace Namespace
 
-  PLUGINLIB_DECLARE_CLASS(@(package), @(NodeletClass), @(namespace)::@(NamespaceClass), nodelet::Nodelet);
+  PLUGINLIB_DECLARE_CLASS(Package, NodeletClass, Namespace::NamespaceClass, nodelet::Nodelet);
