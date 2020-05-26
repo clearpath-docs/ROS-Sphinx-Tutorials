@@ -54,7 +54,7 @@ We'll begin our navigation tutorial by first building a map of our Gazebo world 
   source ~/jackal_navigation/devel/setup.bash
   roslaunch jackal_navigation gmapping.launch
 
-If you're familiar with ROS launch files, I'd encourage you to take a look `here <https://github.com/jackal/jackal/blob/melodic-devel/jackal_navigation/launch/include/gmapping.launch>`_, otherwise, you can check out our tutorial on launch files `here <http://www.clearpathrobotics.com/guides/ros/Launch%20Files.html>`_. This launch file is simply starting the `gmaping package <http://wiki.ros.org/gmapping>`_ and setting several of the gmapping parameters which are described on the `gmapping ROS wiki <http://wiki.ros.org/gmapping>`_ page. **In a new terminal**, open up Rviz using the Jackal's gmaping configuration.
+If you're familiar with ROS launch files, I'd encourage you to take a look `at gmapping <https://github.com/jackal/jackal/blob/melodic-devel/jackal_navigation/launch/include/gmapping.launch>`_, otherwise, you can check out our tutorial on `launch files <http://www.clearpathrobotics.com/guides/ros/Launch%20Files.html>`_. This launch file is simply starting the `gmaping package <http://wiki.ros.org/gmapping>`_ and setting several of the gmapping parameters which are described on the `gmapping ROS wiki <http://wiki.ros.org/gmapping>`_ page. **In a new terminal**, open up Rviz using the Jackal's gmaping configuration.
 
 .. code-block:: bash
 
