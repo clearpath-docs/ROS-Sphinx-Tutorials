@@ -12,7 +12,7 @@ The first step is to set up your Arduino environment, begin by installing the Ar
 
 .. code-block:: bash
 
-  sudo apt-get install arduino arduino-core ros-hydro-rosserial ros-hydro-rosserial-arduino
+  sudo apt-get install arduino arduino-core ros-kinetic-rosserial ros-kinetic-rosserial-arduino
 
 Once you open up the Arduino IDE for the first time, a directory named "sketchbook" will be created in your home directory. Now we need to import the rosserial library into your arduino IDE. If your sketchbook directory is empty, you may need to create a directory named "libraries" inside of it.
 

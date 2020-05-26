@@ -1,12 +1,12 @@
-ROS Parameter Server 
-====================== 
+ROS Parameter Server
+======================
 
 Configuration information in ROS is usually saved to the Parameter server. The Parameter sever is a collection of values that can be accessed upon request through the command prompt, nodes or launch files. Parameters are intended to be fairly static, globally available values such as integers, floats, strings or bool values.
 
 Parameters From the Terminal
 -----------------------------
 
-Parameters can be can be viewed and changed directly from a terminal using various rosparam commands. The simplest command lists all of the currently active parameters. 
+Parameters can be can be viewed and changed directly from a terminal using various rosparam commands. The simplest command lists all of the currently active parameters.
 
 .. code-block:: bash
 
@@ -18,15 +18,15 @@ The rosparam get command can be used to determine the value of a parameter.
 
 .. code-block:: bash
 
-  rosparam get 
+  rosparam get
 
-For example, we can see that gravity in the z direction in Gazebo is set to -9.8, and we are currently running ROS hydro.
+For example, we can see that gravity in the z direction in Gazebo is set to -9.8, and we are currently running ROS kinetic.
 
 It is also possible to change a parameter using rosparam set
 
 .. code-block:: bash
 
-  rosparam set  
+  rosparam set
 
 Say we wanted to simulate Husky driving on the moon, then we could change the gravity parameter is gazebo very easily
 
@@ -40,7 +40,7 @@ Accessing Parameters from Nodes
 It is often the case that your nodes will have to access the parameter server during start up to retrieve configuration information, or set a parameter value. This can be done quite easily in both C++ or Python, to set a parameter use:
 
 
-**C++**     
+**C++**
 
 .. code-block:: C
 
