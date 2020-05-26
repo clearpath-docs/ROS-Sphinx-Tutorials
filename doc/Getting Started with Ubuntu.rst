@@ -25,7 +25,7 @@ Ubuntu programs are installed from repositories. This allows for very easy insta
 
     sudo apt-get install
 
-ROS packages will be named ros-. For example, to install the Clearpath Robotics Kinetic Husky packages you would use:
+ROS packages will be named ros-. For example, to install the Clearpath Robotics Melodic Husky packages you would use:
 
 .. parsed-literal::
 

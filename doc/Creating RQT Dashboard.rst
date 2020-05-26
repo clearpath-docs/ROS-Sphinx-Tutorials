@@ -3,7 +3,7 @@ Creating a RQT Dashboard
 
 After working in the terminal, gazebo and RViz, it's time for a change of pace. For this tutorial we will be detailing the basics of creating your own rqt dashboard! A dashboard is a single rqt window with one or more plugins displayed in movable, resizable frames. Dashboards generally consist of a number of plugins that in combination provide a suite of UI capabilities for working with robots and robot data.
 
-Dashboards can be populated and configured interactively in an rqt session. A preferred configuration can be saved as a "Perspective", which saves the plugins loaded, their layout, and where supported, their settings and last-saved initial parameters (such as what topic we were last plotting). In this tutorial we will be working with the Husky simulation in ROS Kinetic. To install ROS Kinetic, please `see these instructions <http://wiki.ros.org/melodic/Installation/Ubuntu>`_, and visit our `Husky page <http://wiki.ros.org/Robots/Husky>`_ to install the Husky simulation.
+Dashboards can be populated and configured interactively in an rqt session. A preferred configuration can be saved as a "Perspective", which saves the plugins loaded, their layout, and where supported, their settings and last-saved initial parameters (such as what topic we were last plotting). In this tutorial we will be working with the Husky simulation in ROS Melodic. To install ROS Melodic, please `see these instructions <http://wiki.ros.org/melodic/Installation/Ubuntu>`_, and visit our `Husky page <http://wiki.ros.org/Robots/Husky>`_ to install the Husky simulation.
 
 Getting Started
 ----------------

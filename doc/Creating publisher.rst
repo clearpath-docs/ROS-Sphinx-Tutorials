@@ -1,6 +1,6 @@
 Creating a Workspace and Publisher
 =========================================
-We will first be creating a workspace to work from, then we will write a simple publisher that will make our virtual Husky drive around randomly. This tutorial is intended for Ubuntu 16.04 and `ROS Kinetic <http://wiki.ros.org/melodic>`_.
+We will first be creating a workspace to work from, then we will write a simple publisher that will make our virtual Husky drive around randomly. This tutorial is intended for Ubuntu 18.04 and `ROS Melodic <http://wiki.ros.org/melodic>`_.
 
 Creating a Workspace & Package
 -------------------------------

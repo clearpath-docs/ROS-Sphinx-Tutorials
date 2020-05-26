@@ -3,7 +3,7 @@ ROS Navigation Basics
 
 If you've worked with ROS and robotics, you've probably heard of gmaping, localization, SLAM, costmaps and paths, but what does all this mean? They are more than just robot buzz words; these allow a robot to get from one point to another without bumping into obstacles, and in this tutorial, we'll be covering some of the key concepts in what makes up an autonomous robot.
 
-For this tutorial, we'll be using Clearpath's Jackal simulation in ROS Kinetic. If you've never used ROS before, or don't have ROS Kinetic installed on your machine, check out the `ROS wiki <http://wiki.ros.org/i  ndigo>`_ to get started.
+For this tutorial, we'll be using Clearpath's Jackal simulation in ROS Melodic. If you've never used ROS before, or don't have ROS Melodic installed on your machine, check out the `ROS wiki <http://wiki.ros.org/i  ndigo>`_ to get started.
 
 Getting Started
 ----------------

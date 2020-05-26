@@ -18,7 +18,7 @@ If you still need to write your own rule to setup naming and permissions for you
 
 .. code-block:: bash
 
-  SUBSYSTEMS=="usb", KERNEL=="ttyACM[0-9]*", ACTION=="add", ATTRS{idVendor}=="15d1", ATTRS{idProduct}=="0000", MODE="666", PROGRAM="/opt/ros/hydro/lib/urg_node/getID /dev/%k q", SYMLINK+="sensors/hokuyo_%c", GROUP="dialout"
+  SUBSYSTEMS=="usb", KERNEL=="ttyACM[0-9]*", ACTION=="add", ATTRS{idVendor}=="15d1", ATTRS{idProduct}=="0000", MODE="666", PROGRAM="/opt/ros/melodic/lib/urg_node/getID /dev/%k q", SYMLINK+="sensors/hokuyo_%c", GROUP="dialout"
 
 A udev rule is made up of a bunch of comma separated tags, as above. The tags are divided into two parts: matching and configuration, however they can be written into the rule in any order (confusingly enough).
 
@@ -113,7 +113,7 @@ Unlike the RUN tag which spins off, this command will block (needs to be execute
 
 .. code-block:: bash
 
-  PROGRAM="/opt/ros/hydro/lib/urg_node/getID /dev/%k q", SYMLINK+="sensors/hokuyo_%c"
+  PROGRAM="/opt/ros/melodic/lib/urg_node/getID /dev/%k q", SYMLINK+="sensors/hokuyo_%c"
 
 Substitution argument %k refers to the device path relative to /dev/, and %crefers to the output of the PROGRAM tag.
 
