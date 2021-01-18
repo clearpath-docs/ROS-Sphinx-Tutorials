@@ -89,7 +89,7 @@ The next step is to launch our Husky simulation to start up ROS and all the Husk
 
 .. code-block:: bash
 
-  roslaunch husky_gazebo husky_emepty_world.launch
+  roslaunch husky_gazebo husky_empty_world.launch
 
 In this tutorial we have provided a launch file that will start the random_driver and **odom_graph** node. The launch file is located in **~/ros101/src/launch** and is called **odom_graph_test.launch**. If you want to learn more about launch files, check out our launch file article on our support knowledge base. We will now source our workspace and launch both nodes with the launch file in a new terminal window.
 
