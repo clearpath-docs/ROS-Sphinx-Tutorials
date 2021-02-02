@@ -6,7 +6,7 @@ Ready to get started with ROS (Robot Operating System)?  You've come to the righ
 .. toctree::
     :maxdepth: 0
 
- 
+
 .. toctree::
     :maxdepth: 0
     :caption: Beginner
@@ -15,7 +15,7 @@ Ready to get started with ROS (Robot Operating System)?  You've come to the righ
     ROS 101: Intro to ROS <Intro to the Robot Operating System>
     ROS 101: A Practical Example <Practical Example>
     ROS 101: Drive a Husky <Drive a Husky>
-    ROS 101: Drive a Grizzly <Drive a Grizzly>
+    ROS 101: Drive a Warthog <Drive a Warthog>
 
 
 .. toctree::

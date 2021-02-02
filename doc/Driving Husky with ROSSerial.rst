@@ -3,7 +3,7 @@ Driving Husky with ROSserial and an Arduino
 
 The Arduino family of micro controllers has quickly become a go to board for hobbyist due to its simplicity and ease of use, however often times roboticists must create communication protocols to allow their embedded hardware to communicate with a computer. That's where rosserial comes in! Rosserial is a general protocol for sending ROS messages over a serial interface, such as the UART on Arduino. This allows you to easily interface any sensors attached to Arduino into your ROS environment!
 
-This tutorial will get you started  by setting up the Arduino IDE and installing the rosserial libraries. Then, we'll test it out by driving the Husky simulation using a neat trick with the Arduino board. It should goes without saying you'll need an Arduino to complete this tutorial. We'll also be using a Husky simulator, so make sure to run through our :doc: `Drive a Husky <Drive a Husky>`_ tutorial if you haven't done so yet.
+This tutorial will get you started  by setting up the Arduino IDE and installing the rosserial libraries. Then, we'll test it out by driving the Husky simulation using a neat trick with the Arduino board. It should goes without saying you'll need an Arduino to complete this tutorial. We'll also be using a Husky simulator, so make sure to run through our :doc:`Drive a Husky <Drive a Husky>` tutorial if you haven't done so yet.
 
 Setup
 ------

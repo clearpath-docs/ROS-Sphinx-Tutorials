@@ -1,10 +1,5 @@
-Drive a Grizzly
+Drive a Warthog
 ================
-
-.. warning::
-
-	Grizzly is a discontinued platform.  Please see :doc:`Drive a Husky <Drive a Husky>` or
-	:doc:`Drive a Warthog <Drive a Warthog>` for currently-supported platforms.
 
 Updating the Virtual Machine
 ------------------------------
@@ -12,35 +7,35 @@ Open a terminal window (Ctrl + Alt + T), and enter the following:
 
 .. parsed-literal::
 	sudo apt-get update
-	sudo apt-get install ros-melodic-grizzly-simulator
-	sudo apt-get install ros-melodic-grizzly-desktop
-	sudo apt-get install ros-melodic-grizzly-navigation
+	sudo apt-get install ros-melodic-warthog-simulator
+	sudo apt-get install ros-melodic-warthog-desktop
+	sudo apt-get install ros-melodic-warthog-navigation
 
 
-Running a Virtual Grizzly
+Running a Virtual Warthog
 --------------------------
 
 Open a terminal window, and enter:
 
 .. parsed-literal::
-	roslaunch grizzly_gazebo grizzly_empty_world.launch
+	roslaunch warthog_gazebo empty_world.launch
 
 Open another terminal window, and enter:
 
 .. parsed-literal::
-	roslaunch grizzly_viz view_robot.launch
+	roslaunch warthog_viz view_robot.launch
 
-You should be given two windows, both showing a yellow, rugged robot (Grizzly!). The left one shown is Gazebo.
+You should be given two windows, both showing a yellow, rugged robot (Warthog!). The left one shown is Gazebo.
 This is where we get a realistic simulation of our robot, including wheel slippage, skidding, and inertia.
 We can add objects to this simulation, or even entire maps of real places.
 
-.. image:: grizzlysim.png
+.. image:: warthogsim.png
 	:scale: 75%
 
 
 This window below is RViz. This tool allows us to see sensor data from a robot, and give it commands (in a future post). RViz is a more simplified simulation in the interest of speed.
 
-.. image:: grizzlyviz.png
+.. image:: warthogviz.png
 	:scale: 75%
 
 We can now command the robot to go forwards. Open a terminal window, and copy the following:
@@ -53,8 +48,8 @@ We can now command the robot to go forwards. Open a terminal window, and copy th
 	angular:
 		x: 0.0
 		y: 0.0
-		z: 0.0"
+		z: 0.0" -r 10
 
 In the above command, we publish to the cmd_vel topic, of topic type **geometry_msgs/Twist**.
-The data we publish tells the simulated Grizzly to go forwards at 0.5m/s, without any rotation.
-You should see your Grizzly move forwards. In the gazebo window, you might also notice simulated wheel slip, and skidding.
+The data we publish tells the simulated Warthog to go forwards at 0.5m/s, without any rotation.
+You should see your Warthog move forwards. In the gazebo window, you might also notice simulated wheel slip, and skidding.
