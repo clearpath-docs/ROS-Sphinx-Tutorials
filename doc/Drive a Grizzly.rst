@@ -1,6 +1,12 @@
 Drive a Grizzly
 ================
 
+.. warning::
+	Grizzly is a discontinued platform.  Please see :doc:`Drive a Husky <Drive a Husky>` for a currently-supported robot.
+
+	This page is presented for legacy information only.
+	
+
 Updating the Virtual Machine
 ------------------------------
 Open a terminal window (Ctrl + Alt + T), and enter the following:
