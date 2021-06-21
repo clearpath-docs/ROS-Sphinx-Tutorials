@@ -1,6 +1,11 @@
 ROS Tutorials
 ================
 
+.. note::
+
+    We are in the process of releasing Noetic support for our platforms.  As such some packages referred to in this
+    document may not be released *yet*, but is scheduled to be released soon.  We apologize for any inconvenience.
+
 Ready to get started with ROS (Robot Operating System)?  You've come to the right place.  Here you will find our collection of step-by-step tutorials, including our ROS 101 series aimed at beginners as well advanced topics for the seasoned roboticist.
 
 .. toctree::

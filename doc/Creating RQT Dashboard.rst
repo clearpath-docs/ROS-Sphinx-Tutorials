@@ -3,7 +3,7 @@ Creating a RQT Dashboard
 
 After working in the terminal, gazebo and RViz, it's time for a change of pace. For this tutorial we will be detailing the basics of creating your own rqt dashboard! A dashboard is a single rqt window with one or more plugins displayed in movable, resizable frames. Dashboards generally consist of a number of plugins that in combination provide a suite of UI capabilities for working with robots and robot data.
 
-Dashboards can be populated and configured interactively in an rqt session. A preferred configuration can be saved as a "Perspective", which saves the plugins loaded, their layout, and where supported, their settings and last-saved initial parameters (such as what topic we were last plotting). In this tutorial we will be working with the Husky simulation in ROS Melodic. To install ROS Melodic, please `see these instructions <http://wiki.ros.org/melodic/Installation/Ubuntu>`_, and visit our `Husky page <http://wiki.ros.org/Robots/Husky>`_ to install the Husky simulation.
+Dashboards can be populated and configured interactively in an rqt session. A preferred configuration can be saved as a "Perspective", which saves the plugins loaded, their layout, and where supported, their settings and last-saved initial parameters (such as what topic we were last plotting). In this tutorial we will be working with the Husky simulation in ROS noetic. To install ROS noetic, please `see these instructions <http://wiki.ros.org/noetic/Installation/Ubuntu>`_, and visit our `Husky page <http://wiki.ros.org/Robots/Husky>`_ to install the Husky simulation.
 
 Getting Started
 ----------------
@@ -12,7 +12,7 @@ The first step is to install rqt! We will also be installing some common plugins
 
 .. code-block:: bash
 
-  sudo apt-get install ros-melodic-rqt ros-melodic-rqt-common-plugins ros-melodic-rqt-robot-plugins
+  sudo apt-get install ros-noetic-rqt ros-noetic-rqt-common-plugins ros-noetic-rqt-robot-plugins
 
 We can then launch RQT by simply using:
 
@@ -67,7 +67,7 @@ A perspective can be loaded interactively in RQT by selecting Perspectives, impo
 
 Some plugins allow you to configure options that impact its installation and behavior. For example, the **Python Console** plugin allows you to choose which console implementation to use. You can access these options for any plugin by selecting the gear icon in its title bar. If no gear icon is present, the plugin has not been configured to provide an options menu.
 
-**Rviz:** To load Husky into your Rviz plugin, select **open config** from the drop down menu, and navigate to **/opt/ros/melodic/share/husky_viz/rviz/view_robot.rviz**. You should now see a model of Husky loaded in Rviz! By default, this config file will include the simulated laser, and you can see the object in Husky's path in the Gazebo environment.
+**Rviz:** To load Husky into your Rviz plugin, select **open config** from the drop down menu, and navigate to **/opt/ros/noetic/share/husky_viz/rviz/view_robot.rviz**. You should now see a model of Husky loaded in Rviz! By default, this config file will include the simulated laser, and you can see the object in Husky's path in the Gazebo environment.
 
 .. image:: load_config_rqt.png
 	:scale: 50 %

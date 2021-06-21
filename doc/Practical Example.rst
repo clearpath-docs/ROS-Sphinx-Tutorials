@@ -13,7 +13,7 @@ Follow along to see how we actually ‘do’ all of these things….
 	**Password:** learn
 
 2. 	Get VMWare Player, and use the virtual disk above. If you don’t want to use the provided image,
-	follow the tutorial here (after installing Ubuntu 16.04):http://wiki.ros.org/melodic/Installation/Ubuntu
+	follow the tutorial here (after installing Ubuntu 16.04):http://wiki.ros.org/noetic/Installation/Ubuntu
 
 	Throughout the rest of the tutorials, we will be referencing the ROS cheatsheet available `here <http://bit.ly/1RCVMaB>`_.
 

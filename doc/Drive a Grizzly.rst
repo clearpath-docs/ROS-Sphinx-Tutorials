@@ -12,9 +12,9 @@ Open a terminal window (Ctrl + Alt + T), and enter the following:
 
 .. parsed-literal::
 	sudo apt-get update
-	sudo apt-get install ros-melodic-grizzly-simulator
-	sudo apt-get install ros-melodic-grizzly-desktop
-	sudo apt-get install ros-melodic-grizzly-navigation
+	sudo apt-get install ros-noetic-grizzly-simulator
+	sudo apt-get install ros-noetic-grizzly-desktop
+	sudo apt-get install ros-noetic-grizzly-navigation
 
 
 Running a Virtual Grizzly

@@ -25,11 +25,11 @@ Ubuntu programs are installed from repositories. This allows for very easy insta
 
     sudo apt-get install
 
-ROS packages will be named ros-. For example, to install the Clearpath Robotics Melodic Husky packages you would use:
+ROS packages will be named ros-. For example, to install the Clearpath Robotics noetic Husky packages you would use:
 
 .. parsed-literal::
 
-	sudo apt-get install ros-melodic-husky-desktop
+	sudo apt-get install ros-noetic-husky-desktop
 
 A very convenient feature of Ubuntu is tab auto completion! While typing a command, press the tab key to complete the rest of the command. If there are multiple commands that could be used to finish your line, double tap the tab key to list the possible options.
 

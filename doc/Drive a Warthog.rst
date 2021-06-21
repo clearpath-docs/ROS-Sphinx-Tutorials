@@ -7,9 +7,9 @@ Open a terminal window (Ctrl + Alt + T), and enter the following:
 
 .. parsed-literal::
 	sudo apt-get update
-	sudo apt-get install ros-melodic-warthog-simulator
-	sudo apt-get install ros-melodic-warthog-desktop
-	sudo apt-get install ros-melodic-warthog-navigation
+	sudo apt-get install ros-noetic-warthog-simulator
+	sudo apt-get install ros-noetic-warthog-desktop
+	sudo apt-get install ros-noetic-warthog-navigation
 
 
 Running a Virtual Warthog
