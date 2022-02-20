@@ -3,7 +3,7 @@ Creating a RQT Dashboard
 
 After working in the terminal, gazebo and RViz, it's time for a change of pace. For this tutorial we will be detailing the basics of creating your own rqt dashboard! A dashboard is a single rqt window with one or more plugins displayed in movable, resizable frames. Dashboards generally consist of a number of plugins that in combination provide a suite of UI capabilities for working with robots and robot data.
 
-Dashboards can be populated and configured interactively in an rqt session. A preferred configuration can be saved as a "Perspective", which saves the plugins loaded, their layout, and where supported, their settings and last-saved initial parameters (such as what topic we were last plotting). In this tutorial we will be working with the Husky simulation in ROS noetic. To install ROS noetic, please `see these instructions <http://wiki.ros.org/noetic/Installation/Ubuntu>`_, and visit our `Husky page <http://wiki.ros.org/Robots/Husky>`_ to install the Husky simulation.
+Dashboards can be populated and configured interactively in an rqt session. A preferred configuration can be saved as a "Perspective", which saves the plugins loaded, their layout, and where supported, their settings and last-saved initial parameters (such as what topic we were last plotting). In this tutorial we will be working with the Husky simulation in ROS Noetic. To install ROS Noetic, please `see these instructions <http://wiki.ros.org/noetic/Installation/Ubuntu>`_, and visit our `Husky page <http://wiki.ros.org/Robots/Husky>`_ to install the Husky simulation.
 
 Getting Started
 ----------------
@@ -75,13 +75,10 @@ Some plugins allow you to configure options that impact its installation and beh
 .. image:: with_plugins_Gazebo.png
 	:scale: 50 %
 
-**Plot:** The Plot tool is useful to plot a particular topic in real time, for this example we will be plotting the commanded odometery topic versus the simulated odometrey. In the input window on the top right of the plot plugin, add the follow topic in each plot.
+**Plot:** The Plot tool is useful to plot a particular topic in real time, for this example we will be plotting the commanded odometery topic versus the simulated odometrey. In the input window on the top right of the plot plugin, add the following topics in each plot:
 
-/odometry/filtered/twist/twist/angular/z
-
-and
-
-/husky_velocity_controller/odom/twist/twist/angular/z
+* /odometry/filtered/twist/twist/angular/z
+* /husky_velocity_controller/odom/twist/twist/angular/z
 
 **Robot Steering:** The robot steering plugin provides us with a simple way to manually drive Husky, all that is required is to specify the topic which accepts the velocity commands to move your Robot, for our virtual Husky, that topic is **/cmd_vel**.
 

@@ -4,7 +4,7 @@ Practical Example
 Now that you understand the basics, here’s how they can apply to a practical example.
 Follow along to see how we actually ‘do’ all of these things….
 
-1. 	First, you will need to run Ubuntu, and have ROS installed on it. For your convenience, you can download our easy-to-use image here:
+1. 	First, you will need to run Ubuntu 20.04, and have ROS Noetic installed on it. For your convenience, you can download our easy-to-use image here:
 
 	https://s3.amazonaws.com/CPR_PUBLIC/LEARN_ROS/ROS_Edu.zip
 
@@ -13,7 +13,7 @@ Follow along to see how we actually ‘do’ all of these things….
 	**Password:** learn
 
 2. 	Get VMWare Player, and use the virtual disk above. If you don’t want to use the provided image,
-	follow the tutorial here (after installing Ubuntu 16.04):http://wiki.ros.org/noetic/Installation/Ubuntu
+	follow the tutorial here (after installing Ubuntu 20.04): http://wiki.ros.org/noetic/Installation/Ubuntu
 
 	Throughout the rest of the tutorials, we will be referencing the ROS cheatsheet available `here <http://bit.ly/1RCVMaB>`_.
 

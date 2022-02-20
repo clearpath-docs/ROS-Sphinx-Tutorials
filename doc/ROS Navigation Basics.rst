@@ -3,7 +3,7 @@ ROS Navigation Basics
 
 If you've worked with ROS and robotics, you've probably heard of gmaping, localization, SLAM, costmaps and paths, but what does all this mean? They are more than just robot buzz words; these allow a robot to get from one point to another without bumping into obstacles, and in this tutorial, we'll be covering some of the key concepts in what makes up an autonomous robot.
 
-For this tutorial, we'll be using Clearpath's Jackal simulation in ROS noetic. If you've never used ROS before, or don't have ROS noetic installed on your machine, check out the `ROS wiki <http://wiki.ros.org/i  ndigo>`_ to get started.
+For this tutorial, we'll be using Clearpath's Jackal simulation in ROS Noetic. If you've never used ROS before, or don't have ROS Noetic installed on your machine, check out the `ROS wiki <http://wiki.ros.org/i  ndigo>`_ to get started.
 
 Getting Started
 ----------------
@@ -14,7 +14,7 @@ We'll begin by installing Clearpath's Jackal simulation, desktop, and navigation
 
   sudo apt-get install ros-noetic-jackal-simulator ros-noetic-jackal-desktop
 
-In addition, we'll need the Jackal navigation package, but instead of installing the debians packages with apt-get, we'll create a sourced workspace so we can make changes to some of these files and see how it effects our simulation. For a full explanation on creating and compiling a sourced workspace, check out our `Creating a Workspace & Package <http://www.clearpathrobotics.com/guides/ros/Creating%20publisher.html>`_ tutorial, but for the purpose of this tutorial, here is a series of commands that'll clone the jackal_navigation package (and a few others) into a sourced workspace.
+In addition, we'll need the Jackal navigation package, but instead of installing the debians packages with apt-get, we'll create a sourced workspace so we can make changes to some of these files and see how it effects our simulation. For a full explanation on creating and compiling a sourced workspace, check out our `Creating a Workspace and Package <http://www.clearpathrobotics.com/guides/ros/Creating%20publisher.html>`_ tutorial, but for the purpose of this tutorial, here is a series of commands that'll clone the jackal_navigation package (and a few others) into a sourced workspace.
 
 .. code-block:: bash
 
