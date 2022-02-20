@@ -102,4 +102,4 @@ In this tutorial we have provided a launch file that will start the random_drive
     :scale: 50 %
 
 
-ROS101 GitHub1 There you have it! Our subscriber is now listening to messages on the odom topic, and graphing out Husky's path.
+There you have it! Our subscriber is now listening to messages on the odom topic, and graphing out Husky's path.

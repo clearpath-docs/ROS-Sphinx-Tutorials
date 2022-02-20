@@ -10,8 +10,8 @@ ROSLAUNCH
 
 .. code-block:: bash
 
-	roslaunch package_name launch_file
-	roslaunch ~/.../.../.../launch_file
+	roslaunch <package> <launch_file>
+	roslaunch </PATH/TO/LAUNCH_FILE/launch_file>
 
 Note: roslaunch will also start roscore if no master has been set. Pushing Ctrl-C in a terminal with a launch file running will close all nodes that were started with that launch files.
 
@@ -20,11 +20,15 @@ Writing a .launch File
 
 Launch files are of the format .launch and use a specific XML format. They can be placed anywhere within a package directory, but it is common to make a directory named "Launch" inside the workspace directory to organize all your launch files. The contents of a launch file must be contained between a pair of launch tags
 
+.. code-block:: bash
+
 	<launch>
-	...
+		...
 	</launch>
 
 To actually start a node, the <node> tags are used, the pkg, type and name argument are required.
+
+.. code-block:: bash
 
 	<node pkg="..." type="..." name="..." respawn=true ns="..."/>
 
@@ -35,6 +39,8 @@ To actually start a node, the <node> tags are used, the pkg, type and name argum
 **ns:** Another common use for a launch file is to launch a node inside a namespace. This is useful when using multiple instances of the same node. You can specify a namespace by using the "ns" argument.
 
 **arg:** Sometimes it is necessary to use a local variable in launch files. This can be done using
+
+.. code-block:: bash
 
 	<arg name="..." value="...">
 

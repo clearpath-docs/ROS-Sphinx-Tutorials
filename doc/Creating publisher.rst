@@ -1,8 +1,8 @@
 Creating a Workspace and Publisher
 =========================================
-We will first be creating a workspace to work from, then we will write a simple publisher that will make our virtual Husky drive around randomly. This tutorial is intended for Ubuntu 18.04 and `ROS noetic <http://wiki.ros.org/noetic>`_.
+We will first be creating a workspace to work from, then we will write a simple publisher that will make our virtual Husky drive around randomly. This tutorial is intended for Ubuntu 20.04 (Focal) and `ROS Noetic <http://wiki.ros.org/noetic>`_.
 
-Creating a Workspace & Package
+Creating a Workspace and Package
 -------------------------------
 
 Before we begin writing a node, we need to create a workspace and a package.
@@ -14,7 +14,7 @@ First we will need to create a new directory.
     mkdir ~/ros101
 
 This created a directory in your home folder which we will use as a workspace directory.
-We now need to create a subdirectory in your workspace directory to store all your source code for your packages
+We now need to create a subdirectory in your workspace directory to store all your source code for your packages.
 
 .. code-block:: bash
 
@@ -171,7 +171,7 @@ lines to the **CMakeLists.txt** files in **~/ros101/src/random_husky_driver**. Y
 
 The first line creates the executable called random_driver, and directs ROS to it's source files.
 The second lines specifies what libraries will be used.
-Now we need to build our workspace using the catkin_make command in the workspace directory
+Now we need to build our workspace using the **catkin_make** command in the workspace directory
 
 .. code-block:: bash
 

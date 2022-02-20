@@ -20,7 +20,7 @@ The rosparam get command can be used to determine the value of a parameter.
 
   rosparam get
 
-For example, we can see that gravity in the z direction in Gazebo is set to -9.8, and we are currently running ROS noetic.
+For example, we can see that gravity in the z direction in Gazebo is set to -9.8, and we are currently running ROS Noetic.
 
 It is also possible to change a parameter using rosparam set
 
